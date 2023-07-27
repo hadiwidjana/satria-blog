@@ -7,11 +7,14 @@ import Typography from '@mui/material/Typography';
 import ReactTimeAgo from 'react-time-ago';
 import Stack from '@mui/material/Stack';
 
+
 export default function Post({_id, title, summary, cover, content, createdAt, author}) {
 
     return (
-            <Stack className='post'  maxWidth='800px' sx={{m:'auto'}}>
-                <Card to={`/post/${_id}`} style={{textDecoration: 'none'}} className='card-link'>
+        <Link to={`/post/${_id}`} style={{textDecoration: 'none'}} className='card-link'>
+
+            <Stack className='post' maxWidth='800px' sx={{m: 'auto'}}>
+                <Card>
                     <CardActionArea>
                         <CardMedia
                             component="img"
@@ -21,9 +24,9 @@ export default function Post({_id, title, summary, cover, content, createdAt, au
                         />
                         <CardContent>
                             <div>
-                            <Typography gutterBottom variant="h5" component="div" color="text.primary">
-                                {title}
-                            </Typography>
+                                <Typography gutterBottom variant="h5" component="div" color="text.primary">
+                                    {title}
+                                </Typography>
                             </div>
                             <Typography gutterBottom variant="caption" component="div" color="text.primary">
                                 {author.username} - <ReactTimeAgo date={createdAt} locale="en-US"/>
@@ -37,12 +40,13 @@ export default function Post({_id, title, summary, cover, content, createdAt, au
                                     WebkitBoxOrient: 'vertical',
                                     WebkitLineClamp: 3,
                                 }}>
-                                <div className="content" dangerouslySetInnerHTML={{ __html: content }} />
+                                <div className="content" dangerouslySetInnerHTML={{__html: content}}/>
                             </Typography>
                         </CardContent>
                     </CardActionArea>
                 </Card>
             </Stack>
+        </Link>
 
 
     )
