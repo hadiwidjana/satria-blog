@@ -10,16 +10,14 @@ import Stack from '@mui/material/Stack';
 export default function Post({_id, title, summary, cover, content, createdAt, author}) {
 
     return (
-        <Stack className='main-content'>
-            <Card className='post'  width='100%' sx={{m:'auto'}}>
-                <Link to={`/post/${_id}`} style={{textDecoration: 'none'}} className='card-link'>
+            <Stack className='post'  maxWidth='800px' sx={{m:'auto'}}>
+                <Card to={`/post/${_id}`} style={{textDecoration: 'none'}} className='card-link'>
                     <CardActionArea>
                         <CardMedia
                             component="img"
                             height="280px"
                             image={cover}
                             alt={title}
-                            align= 'center'
                         />
                         <CardContent>
                             <div>
@@ -43,9 +41,8 @@ export default function Post({_id, title, summary, cover, content, createdAt, au
                             </Typography>
                         </CardContent>
                     </CardActionArea>
-                </Link>
-            </Card>
-        </Stack>
+                </Card>
+            </Stack>
 
 
     )

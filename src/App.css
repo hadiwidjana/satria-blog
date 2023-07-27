@@ -26,8 +26,7 @@ a:hover{
 }
 
 a.card-link{
-  width: 800px;
-  display: block;
+  margin: auto;
 }
 
 form.post{
