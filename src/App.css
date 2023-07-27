@@ -1,0 +1,63 @@
+html, body, #root{
+  background-color: #2d2d2d;
+}
+
+main{
+  padding: 10px;
+  margin: 50px auto;
+  background-color: #2d2d2d;
+}
+
+div.main-content {
+  margin: 20px auto;
+}
+
+a:-webkit-any-link{
+  font-weight: bold;
+  text-decoration: none;
+  color: dimgray;
+}
+
+
+a:hover{
+  font-weight: bold;
+  text-decoration: none;
+  color: #ffffffb3;
+}
+
+a.card-link{
+  width: 800px;
+  display: block;
+}
+
+form.post{
+  max-width: 800px;
+  margin: 20px auto;
+  text-align: justify;
+}
+
+div.post-page{
+  max-width: 800px;
+  margin: 20px auto;
+  text-align: justify;
+}
+
+.link {
+  text-decoration: none;
+}
+
+div.content img {
+  max-width: 100%;
+}
+
+div.content{
+  word-wrap:break-word;
+  white-space:pre-wrap;
+}
+
+pre.ql-syntax {
+  word-wrap:break-word;
+  white-space:pre-wrap;
+  background-color: #2c2c2c;
+  padding: 20px 40px;
+}
