@@ -3,13 +3,10 @@
 # dependencies
 /.pnp
 .pnp.js
-
 # testing
 /coverage
-
 # production
 /build
-
 # misc
 .idea
 .DS_Store
@@ -21,7 +18,6 @@ api/.env
 client/.env
 node_modules
 api/node_modules
-
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
