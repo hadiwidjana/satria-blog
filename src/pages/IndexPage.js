@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Post from "../Post"
+import Stack from "@mui/material/Stack";
 
 export default function IndexPage() {
     const [posts,setPosts] = useState([])

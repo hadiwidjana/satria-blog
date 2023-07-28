@@ -9,17 +9,18 @@ import Stack from '@mui/material/Stack';
 
 export default function CreatePost() {
     const [title, setTitle] = useState('')
-    const [summary, setSummary] = useState('')
     const [content, setContent] = useState('')
     const [files, setFiles] = useState('')
+    const [tags,setTags] = useState('')
     const [redirect, setRedirect] = useState(false)
 
     async function createNewPost(ev) {
+        let tagArray = tags.split(',')
         const data = new FormData()
         data.set('title', title)
-        data.set('summary', summary)
         data.set('content', content)
         data.set('file', files[0])
+        tagArray.forEach(tag => data.append('tags[]', tag))
         ev.preventDefault();
         const response = await fetch(`${process.env.REACT_APP_API_URL}/post`, {
             method: 'POST',
@@ -55,18 +56,17 @@ export default function CreatePost() {
             component="form">
             <Stack item xs={3} spacing={5} width='100%'>
                 <TextField
-                    fullWidth
                     required
-                    label="title"
+                    label="Title"
+                    defaultValue=''
                     value={title}
                     onChange={ev => setTitle(ev.target.value)}
                 />
                 <TextField
-                    fullWidth
-                    required
-                    label="summary"
-                    value={summary}
-                    onChange={ev => setSummary(ev.target.value)}
+                    label="Tag (comma separated)"
+                    defaultValue=''
+                    value={tags}
+                    onChange={ev => setTags(ev.target.value)}
                 />
                 <Button fullWidth variant="outlined" component="label">
                     Upload Image

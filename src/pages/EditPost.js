@@ -13,7 +13,9 @@ export default function EditPost() {
     const [summary, setSummary] = useState('')
     const [content, setContent] = useState('')
     const [files, setFiles] = useState('')
+    const [tags,setTags] = useState('')
     const [redirect, setRedirect] = useState(false)
+    let tagString
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL}/post/${id}`)
@@ -22,6 +24,12 @@ export default function EditPost() {
                     setTitle(postInfo.title)
                     setSummary(postInfo.summary)
                     setContent(postInfo.content)
+                    postInfo.tags.forEach(tag => {
+                        if(tagString == null) tagString = tag
+                        else tagString += ','+tag
+                    })
+                    console.log(tagString)
+                        setTags(tagString)
                 })
             })
     }, [])
@@ -29,11 +37,12 @@ export default function EditPost() {
 
 
     async function updatePost(ev) {
+        let tagArray = tags.split(',')
         const data = new FormData()
         data.set('title', title)
-        data.set('summary', summary)
         data.set('content', content)
         data.set('id', id)
+        tagArray.forEach(tag => data.append('tags[]', tag))
         if (files?.[0]) {
             data.set('file', files?.[0])
         }
@@ -59,22 +68,19 @@ export default function EditPost() {
         <Stack
             className='post'
             onSubmit={updatePost}
-            component="form"
-        >
+            component="form">
             <Stack item xs={3} spacing={5} width='100%'>
                 <TextField
-                    fullWidth
                     required
                     label="title"
                     value={title}
                     onChange={ev => setTitle(ev.target.value)}
                 />
                 <TextField
-                    fullWidth
-                    required
-                    label="summary"
-                    value={summary}
-                    onChange={ev => setSummary(ev.target.value)}
+                    label="Tag (comma separated)"
+                    defaultValue=''
+                    value={tags}
+                    onChange={ev => setTags(ev.target.value)}
                 />
                 <Button fullWidth variant="outlined" component="label">
                     Upload Image

@@ -6,6 +6,8 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import {Chip} from "@mui/material";
+import Post from "../Post";
 
 export default function PostPage() {
     const [postInfo, setPostInfo] = useState(null)
@@ -57,6 +59,13 @@ export default function PostPage() {
             <Typography variant="body" color="text.secondary">
                 <div className="content" dangerouslySetInnerHTML={{ __html: postInfo.content }} />
             </Typography>
+            <Box marginTop='20px'>
+            {postInfo.tags.length > 0 && postInfo.tags.map(tag => (
+                <Chip variant="outlined" label={tag} width='fit-content' sx={{"margin-right":"10px"}}/>
+            ))}
+            </Box>
+
+
 
         </Stack>
     )

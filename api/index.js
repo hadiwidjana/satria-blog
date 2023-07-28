@@ -102,14 +102,13 @@ app.post('/api/post',photosMiddleware.single('file'),async (req,res) => {
         const {originalname, path, mimetype} = req.file
         url = await uploadToS3(path, originalname,mimetype)
     }
-
     const {token} = req.cookies;
     jwt.verify(token,secret,{},async(err,info) => {
         if (err) throw err
-        const{title,summary,content} = req.body
+        const{title,tags,content} = req.body
         const postDoc = await Post.create({
         title,
-        summary,
+        tags,
         content,
         cover:url,
         author:info.id
@@ -129,7 +128,7 @@ app.put('/api/post',photosMiddleware.single('file'),async (req,res) => {
     const {token} = req.cookies;
     jwt.verify(token,secret,{}, async (err,info) => {
         if (err) throw err
-        const{id,title,summary,content} = req.body
+        const{id,title,tags,content} = req.body
         const postDoc = await Post.findById(id)
         const isAuthor = JSON.stringify(postDoc.author) === JSON.stringify(info.id)
 
@@ -139,7 +138,7 @@ app.put('/api/post',photosMiddleware.single('file'),async (req,res) => {
 
         await postDoc.updateOne({
         title,
-        summary,
+        tags,
         content,
         cover: url ? url : postDoc.cover,
         });
