@@ -17,6 +17,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Logo from './satria.png'
+import SubHeaderNavigation from "./ThemeToggler";
 
 const drawerWidth = 240;
 
@@ -101,6 +102,11 @@ export default function Header(props) {
                     </ListItem>
                 )}
             </List>
+            <Box sx={{
+                bottom:0
+            }}>
+                <SubHeaderNavigation/>
+            </Box>
         </Box>
     );
 
@@ -123,7 +129,7 @@ export default function Header(props) {
                     </Box>
                     <Box>
                         <IconButton
-                            color="inherit"
+                            color="primary"
                             aria-label="open drawer"
                             edge="start"
                             onClick={handleDrawerToggle}
@@ -140,6 +146,9 @@ export default function Header(props) {
                                     <Link to={'/'}>
                                         <Button sx={{ color: '#fff' }} onClick={logout}>Logout</Button>
                                     </Link>
+                                    <Box sx={{float:'left'}}>
+                                        <SubHeaderNavigation />
+                                    </Box>
                                 </List>
                             )}
                             {!username && (
@@ -150,6 +159,9 @@ export default function Header(props) {
                                     <Link to={'/register'}>
                                         <Button sx={{ color: '#fff' }}>Register</Button>
                                     </Link>
+                                    <Box sx={{float:'left'}}>
+                                        <SubHeaderNavigation />
+                                    </Box>
                                 </List>
                             )}
                         </Box>

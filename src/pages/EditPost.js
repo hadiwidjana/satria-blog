@@ -10,26 +10,20 @@ import SendIcon from '@mui/icons-material/Send';
 export default function EditPost() {
     const { id } = useParams();
     const [title, setTitle] = useState('')
-    const [summary, setSummary] = useState('')
     const [content, setContent] = useState('')
     const [files, setFiles] = useState('')
     const [tags,setTags] = useState('')
+    const [tagsStore,setTagsStore] = useState('')
     const [redirect, setRedirect] = useState(false)
-    let tagString
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL}/post/${id}`)
             .then(response => {
                 response.json().then(postInfo => {
                     setTitle(postInfo.title)
-                    setSummary(postInfo.summary)
                     setContent(postInfo.content)
-                    postInfo.tags.forEach(tag => {
-                        if(tagString == null) tagString = tag
-                        else tagString += ','+tag
-                    })
-                    console.log(tagString)
-                        setTags(tagString)
+                    setTags(postInfo.tags)
+                    setTagsStore(postInfo.tags)
                 })
             })
     }, [])
@@ -37,12 +31,18 @@ export default function EditPost() {
 
 
     async function updatePost(ev) {
-        let tagArray = tags.split(',')
+
+
         const data = new FormData()
+        let tagCounter
         data.set('title', title)
         data.set('content', content)
         data.set('id', id)
-        tagArray.forEach(tag => data.append('tags[]', tag))
+        if(tags!=tagsStore){
+            let tagArray = tags.split(',')
+            tagArray.forEach(tag => data.append('tags[]', tag))
+        }
+
         if (files?.[0]) {
             data.set('file', files?.[0])
         }

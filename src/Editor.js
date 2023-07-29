@@ -2,6 +2,8 @@ import ReactQuill, {Quill} from "react-quill"
 import 'react-quill/dist/quill.snow.css';
 import ImageResize from 'quill-image-resize-module-react';
 import ImageCompress from 'quill-image-compress';
+import hljs from 'highlight.js';
+import 'highlight.js/styles/a11y-dark.css';
 
 
 let Block = Quill.import('blots/block');
@@ -9,7 +11,6 @@ Block.tagName = 'div';
 Quill.register(Block);
 Quill.register('modules/imageResize', ImageResize);
 Quill.register('modules/imageCompress', ImageCompress);
-
 
 
 
@@ -34,7 +35,10 @@ const modules = {
         maxHeight: 1000, // default
         imageType: 'image/jpeg', // default
         debug: true, // default
-    }
+    },
+    syntax: {
+        highlight: (text) => hljs.highlightAuto(text).value,
+    },
   }
 
 const formats = [
@@ -45,8 +49,9 @@ const formats = [
   ]
 
 export default function Editor({value,onChange }){
+
     return(
-        <ReactQuill 
+        <ReactQuill
         theme="snow"
         value={value} 
         onChange={onChange}

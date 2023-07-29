@@ -7,7 +7,8 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import {Chip} from "@mui/material";
-import Post from "../Post";
+import hljs from 'highlight.js';
+import 'highlight.js/styles/github-dark.css';
 
 export default function PostPage() {
     const [postInfo, setPostInfo] = useState(null)
@@ -20,6 +21,11 @@ export default function PostPage() {
             })
         })
     }, [])
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        hljs.highlightAll();
+    });
+
 
 
     if (!postInfo) return ''
@@ -65,7 +71,10 @@ export default function PostPage() {
             ))}
             </Box>
 
-
+            {document.querySelectorAll('pre').forEach(el => {
+                // then highlight each
+                hljs.highlightElement(el);
+            })}
 
         </Stack>
     )
