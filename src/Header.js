@@ -18,14 +18,15 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Logo from './satria.png'
 import SubHeaderNavigation from "./ThemeToggler";
+import { useTheme } from '@mui/material/styles';
+
 
 const drawerWidth = 240;
 
 
 export default function Header(props) {
     const { window } = props;
-
-
+    const theme = useTheme();
     const { userInfo, setUserInfo } = useContext(UserContext)
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -46,6 +47,7 @@ export default function Header(props) {
                 setUserInfo(userInfo)
             })
         })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     function logout() {
@@ -102,11 +104,6 @@ export default function Header(props) {
                     </ListItem>
                 )}
             </List>
-            <Box sx={{
-                bottom:0
-            }}>
-                <SubHeaderNavigation/>
-            </Box>
         </Box>
     );
 
@@ -121,7 +118,7 @@ export default function Header(props) {
                                 component="img"
                                 sx={{
                                     width: '100%',
-                                    maxWidth: { xs: 100, sm: 130, md:160, lg:180, xl:200 },
+                                    maxWidth: { xs: 100, sm: 130, md: 160, lg: 180, xl: 200 },
                                 }}
                                 src={Logo}
                             />
@@ -135,7 +132,7 @@ export default function Header(props) {
                             onClick={handleDrawerToggle}
                             sx={{ mr: 2, display: { sm: 'none' } }}
                         >
-                            <MenuIcon />
+                            <MenuIcon sx={{ color: 'white' }} />
                         </IconButton>
                         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                             {username && (
@@ -146,9 +143,6 @@ export default function Header(props) {
                                     <Link to={'/'}>
                                         <Button sx={{ color: '#fff' }} onClick={logout}>Logout</Button>
                                     </Link>
-                                    <Box sx={{float:'left'}}>
-                                        <SubHeaderNavigation />
-                                    </Box>
                                 </List>
                             )}
                             {!username && (
@@ -159,9 +153,6 @@ export default function Header(props) {
                                     <Link to={'/register'}>
                                         <Button sx={{ color: '#fff' }}>Register</Button>
                                     </Link>
-                                    <Box sx={{float:'left'}}>
-                                        <SubHeaderNavigation />
-                                    </Box>
                                 </List>
                             )}
                         </Box>

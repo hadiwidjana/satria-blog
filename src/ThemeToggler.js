@@ -16,14 +16,13 @@ export default function SubHeaderNavigation() {
         >
             {/*{theme.palette.mode} mode*/}
             <IconButton
-                sx={{}}
                 onClick={colorMode.toggleColorMode}
                 color='primary'
             >
                 {theme.palette.mode === 'dark' ? (
-                    <Brightness7Icon />
+                    <Brightness7Icon/>
                 ) : (
-                    <Brightness4Icon />
+                    <Brightness4Icon/>
                 )}
             </IconButton>
         </Box>

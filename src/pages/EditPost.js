@@ -26,6 +26,7 @@ export default function EditPost() {
                     setTagsStore(postInfo.tags)
                 })
             })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
@@ -33,12 +34,12 @@ export default function EditPost() {
     async function updatePost(ev) {
 
 
+
         const data = new FormData()
-        let tagCounter
         data.set('title', title)
         data.set('content', content)
         data.set('id', id)
-        if(tags!=tagsStore){
+        if(tags!==tagsStore){
             let tagArray = tags.split(',')
             tagArray.forEach(tag => data.append('tags[]', tag))
         }
