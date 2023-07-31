@@ -17,7 +17,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Logo from './satria.png'
-import SubHeaderNavigation from "./ThemeToggler";
 import { useTheme } from '@mui/material/styles';
 
 
@@ -110,7 +109,7 @@ export default function Header(props) {
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar component="nav" position="fixed">
+            <AppBar component="nav">
                 <Toolbar>
                     <Box display='flex' flexGrow={1}>
                         <Link to="/">

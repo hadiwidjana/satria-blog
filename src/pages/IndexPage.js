@@ -73,9 +73,6 @@ export default function IndexPage() {
                     </Box>
                 </List>  
             </Box>
-            <Paper className='section' ref={profile} sx={{}} >
-                <Container>footer</Container>
-            </Paper>
         </div>
 
     )
