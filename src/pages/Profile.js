@@ -1,9 +1,16 @@
 import React, { useEffect } from "react";
 import Granim from "granim";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import { Fade, Typography } from "@mui/material";
+import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 
 
-const Profile = () => {
+export default function Profile({
+    scrollto,
+    goToSectionRef,
+}) {
+
     useEffect(() => {
         new Granim({
             element: '#canvas-basic',
@@ -14,18 +21,21 @@ const Profile = () => {
                     gradients: [
                         ['#000000', '#595959'],
                         ['#7D7D7D', '#4A4A4A'],
-                        ['#242424', '#525252']
+                        ['#242424', '#525252'],
+                        ['#888888', '#4A4A4A'],
                     ],
-                    transitionSpeed: 10000
+                    transitionSpeed: 2000
                 }
             }
         });
     }, [])
 
 
-    return <Box sx={{w:'100%', height:'100vh'}}>
+    return <>
         <canvas id='canvas-basic' />
-    </Box>
+        <Box className='snapScrollDown' onClick={() => scrollto(goToSectionRef)}>
+            <Typography variant="subtitle2" color='white' textAlign='center'>Scoll down to read my blog articles</Typography>
+            <ArrowCircleDownIcon sx={{ mx: 'auto', display: 'flex', color: 'white' }} />
+        </Box>
+    </>
 }
-
-export default Profile;

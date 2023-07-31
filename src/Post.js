@@ -34,17 +34,17 @@ export default function Post({ _id, title, tags, cover, content, createdAt, auth
                             <Typography
                                 variant="body2"
                                 color="text.secondary"
+                                className="content"
+                                dangerouslySetInnerHTML={{ __html: content }}
                                 sx={{
                                     display: '-webkit-box',
                                     overflow: 'hidden',
                                     WebkitBoxOrient: 'vertical',
                                     WebkitLineClamp: 3,
-                                }}>
-                                <div className="content" dangerouslySetInnerHTML={{ __html: content }} />
-                            </Typography>
+                                }}/>
                             <Box marginTop='10px'>
                                 {tags.length > 0 && tags.map(tag => (
-                                    <Chip variant="outlined" label={tag} width='fit-content' sx={{ "margin-right": "10px" }} />
+                                    <Chip variant="outlined" label={tag} width='fit-content' sx={{ mr: "10px" }} />
                                 ))}
                             </Box>
                         </CardContent>
