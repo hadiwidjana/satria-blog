@@ -13,6 +13,9 @@ import { Button } from "@mui/material";
 import Box from '@mui/material/Box';
 import SearchIcon from '@mui/icons-material/Search';
 import SubHeaderNavigation from "../ThemeToggler";
+import CircularProgress from '@mui/material/CircularProgress';
+
+
 
 
 
@@ -34,6 +37,8 @@ export default function IndexPage() {
     const [tags, setTags] = useState([])
     const [tagName, setTagName] = React.useState([]);
     const searchRef = React.useRef('')
+    const [loading, setLoading] = useState(false);
+
 
 
 
@@ -45,11 +50,20 @@ export default function IndexPage() {
         })
     }, [])
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}/post`).then(response => {
-            response.json().then(posts => {
-                setPosts(posts)
+        try {
+            setLoading(true)
+            fetch(`${process.env.REACT_APP_API_URL}/post`).then(response => {
+                response.json().then(posts => {
+                    setPosts(posts)
+                })
+            }).finally(() => {
+                setLoading(false)
             })
-        })
+        } catch (error) {
+            setLoading(false)
+            console.error(error)
+        }
+
 
     }, [])
 
@@ -72,12 +86,13 @@ export default function IndexPage() {
         }
 
         const query = [query1, query2]
-
-
+        setLoading(true)
         await fetch(`${process.env.REACT_APP_API_URL}/post?` + query.join('&')).then(response => {
             response.json().then(postInfo => {
                 setPosts(postInfo)
             })
+        }).finally(() => {
+            setLoading(false)
         })
     }
 
@@ -120,8 +135,11 @@ export default function IndexPage() {
             {posts.length > 0 && posts.map(post => (
                 <Post {...post} />
             ))}
-            <Box sx={{mx:'auto', textAlign:'center'}}>
-            <SubHeaderNavigation/>
+            <Box sx={{ mx: 'auto', textAlign: 'center' }}>
+                {loading === true && (
+                    <CircularProgress />
+                )}
+                <SubHeaderNavigation />
             </Box>
         </>
     )

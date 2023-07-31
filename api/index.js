@@ -151,7 +151,7 @@ app.get('/api/post', async (req, res) => {
     const {tags,title} = req.query
     let data;
     let query = {}
-    if(tags) query.tags = tags
+    if(tags) query.tags = {$in: tags}
     if(title) query.title = { $regex: new RegExp("^" + title.toLowerCase(), "i") }
     try {
         data = await Post.find(query)
@@ -196,7 +196,6 @@ app.get('/api/tag', async (req, res) => {
     let json = [{ tags: uniqueTags }]
     res.json(json)
 })
-
 
 if (process.env.API_PORT) {
     app.listen(process.env.API_PORT)
