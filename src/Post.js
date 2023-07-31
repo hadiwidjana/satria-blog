@@ -1,19 +1,19 @@
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import CardContent from '@mui/material/CardContent';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import {CardActionArea, Chip} from '@mui/material';
+import { CardActionArea, Chip } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import ReactTimeAgo from 'react-time-ago';
 import Stack from '@mui/material/Stack';
 import Box from "@mui/material/Box";
 
 
-export default function Post({_id, title, tags, cover, content, createdAt, author}) {
+export default function Post({ _id, title, tags, cover, content, createdAt, author }) {
 
     return (
-        <Link to={`/post/${_id}`} style={{textDecoration: 'none'}} className='card-link'>
-            <Stack className='post' maxWidth='800px' sx={{m: 'auto'}}>
+        <Stack className='post' maxWidth='800px' sx={{ mx:'auto'}}>
+            <Link to={`/post/${_id}`} style={{ textDecoration: 'none' }} className='card-link'>
                 <Card>
                     <CardActionArea>
                         <CardMedia
@@ -29,7 +29,7 @@ export default function Post({_id, title, tags, cover, content, createdAt, autho
                                 </Typography>
                             </div>
                             <Typography gutterBottom variant="caption" component="div" color="text.primary">
-                                {author.username} - <ReactTimeAgo date={createdAt} locale="en-US"/>
+                                {author.username} - <ReactTimeAgo date={createdAt} locale="en-US" />
                             </Typography>
                             <Typography
                                 variant="body2"
@@ -40,18 +40,18 @@ export default function Post({_id, title, tags, cover, content, createdAt, autho
                                     WebkitBoxOrient: 'vertical',
                                     WebkitLineClamp: 3,
                                 }}>
-                                <div className="content" dangerouslySetInnerHTML={{__html: content}}/>
+                                <div className="content" dangerouslySetInnerHTML={{ __html: content }} />
                             </Typography>
                             <Box marginTop='10px'>
                                 {tags.length > 0 && tags.map(tag => (
-                                    <Chip variant="outlined" label={tag} width='fit-content' sx={{"margin-right":"10px"}}/>
+                                    <Chip variant="outlined" label={tag} width='fit-content' sx={{ "margin-right": "10px" }} />
                                 ))}
                             </Box>
                         </CardContent>
                     </CardActionArea>
                 </Card>
-            </Stack>
-        </Link>
+            </Link>
+        </Stack>
 
 
     )
