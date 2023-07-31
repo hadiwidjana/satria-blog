@@ -110,7 +110,7 @@ export default function Header(props) {
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar component="nav">
+            <AppBar component="nav" position="fixed">
                 <Toolbar>
                     <Box display='flex' flexGrow={1}>
                         <Link to="/">

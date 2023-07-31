@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconButton, Box, Typography } from '@mui/material';
+import { IconButton, Box, Typography, Container } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
@@ -10,11 +10,7 @@ export default function ThemeToggler() {
     const colorMode = React.useContext(ColorModeContext);
 
     return (
-        <Box
-            sx={{
-                m: 5
-            }}
-        >
+        <Container className="themeToggler">
 
             <IconButton
                 onClick={colorMode.toggleColorMode}
@@ -36,6 +32,6 @@ export default function ThemeToggler() {
                     </>
                 )}
             </IconButton>
-        </Box>
+        </Container>
     );
 }

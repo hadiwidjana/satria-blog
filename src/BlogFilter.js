@@ -47,13 +47,12 @@ export default function BlogFilter({ tags , setLoading, setPosts}) {
     }
 
     return (
-        <Box className='blog-filter' sx={{ px: 0.5 }} >
-            <Box sx={{ display: 'flex' }}>
+        <Box className='blog-container' >
                 {tags.length > 0 && tags.map(tag => (
-                    <Box component='div' sx={{ width: "20%", display: 'inline-block' }}>
-                        <FormControl sx={{ width: '90%' }}>
+                        <FormControl sx={{ width: '15%', display: 'inline-block', verticalAlign: 'bottom' }}>
                             <InputLabel>Tag</InputLabel>
                             <Select
+                                fullWidth
                                 multiple
                                 value={tagName}
                                 input={<OutlinedInput label="Tag" />}
@@ -68,15 +67,13 @@ export default function BlogFilter({ tags , setLoading, setPosts}) {
                                 ))}
                             </Select>
                         </FormControl>
-                    </Box>
                 ))}
-                <Box component='div' sx={{ width: "65%", display: 'inline-block' }}>
-                    <TextField id="outlined-basic" label="Search Blog" variant="outlined" inputRef={searchRef} sx={{ width: '97%' }} />
+                <Box component='div' sx={{ width: '75%', display: 'inline-block' , verticalAlign:'bottom'}}>
+                    <TextField id="outlined-basic" label="Search Blog" variant="outlined" inputRef={searchRef} sx={{ width: '100%' }} />
                 </Box>
-                <Box component='div' sx={{ width: "15%", display: 'inline-block', overflow: 'hidden' }}>
-                    <Button variant="outlined" onClick={search} sx={{ width: '90%', px: 0, height: 56 }}><SearchIcon /></Button>
+                <Box component='div' sx={{ width:'10%', overflow: 'hidden', display: 'inline-block' , verticalAlign:'bottom' }}>
+                    <Button variant="outlined" onClick={search} sx={{width:'100%', height:'56px' }}><SearchIcon /></Button>
                 </Box>
-            </Box>
         </Box>
     )
 }

@@ -11,7 +11,7 @@ export default function Profile({
     goToSectionRef,
 }) {
 
-    useEffect(() => {
+        useEffect(() => {
         new Granim({
             element: '#canvas-basic',
             direction: 'left-right',
@@ -33,9 +33,9 @@ export default function Profile({
 
     return <>
         <canvas id='canvas-basic' />
-        <Box className='snapScrollDown' onClick={() => scrollto(goToSectionRef)}>
+        <Box className='snapScrollDown'  onClick={()=> scrollto(goToSectionRef)}>
             <Typography variant="subtitle2" color='white' textAlign='center'>Scoll down to read my blog articles</Typography>
-            <ArrowCircleDownIcon sx={{ mx: 'auto', display: 'flex', color: 'white' }} />
+            <ArrowCircleDownIcon sx={{mx: 'auto',display: 'flex', color:'white'}} />
         </Box>
     </>
 }

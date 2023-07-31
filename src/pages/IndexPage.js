@@ -8,6 +8,8 @@ import Profile from "./Profile";
 import List from "@mui/material/List";
 import ThemeToggler from "../ThemeToggler";
 import BlogFilter from "../BlogFilter";
+import Container from '@mui/material/Container';
+
 
 
 export default function IndexPage() {
@@ -18,7 +20,7 @@ export default function IndexPage() {
     const blog = useRef()
 
 
-    function scrollto(section){
+    function scrollto(section) {
         section.current.scrollIntoView({
             behavior: "smooth"
         })
@@ -54,12 +56,13 @@ export default function IndexPage() {
 
     return (
         <div className="container">
-            <Paper className='section' ref={profile} sx={{}} >
+            <Box className='section' ref={profile} sx={{}} >
                 <Profile scrollto={scrollto} goToSectionRef={blog} />
-            </Paper>
-            <Paper className='section' ref={blog} sx={{ paddingTop: '8vh' }} scrollto={scrollto}>
-                <List style={{ maxHeight: '100%', overflow: 'auto' }} >
-                    <BlogFilter tags={tags} setLoading={setLoading}/>
+            </Box>
+            <Box className='section' ref={blog} sx={{ }} scrollto={scrollto}>
+                <BlogFilter tags={tags} setLoading={setLoading} />
+                {/* <ThemeToggler /> */}
+                <List style={{ maxHeight: '80%', overflow: 'auto' }} >
                     {posts.length > 0 && posts.map(post => (
                         <Post {...post} />
                     ))}
@@ -67,11 +70,13 @@ export default function IndexPage() {
                         {loading === true && (
                             <CircularProgress />
                         )}
-                        <ThemeToggler />
                     </Box>
-                </List>
+                </List>  
+            </Box>
+            <Paper className='section' ref={profile} sx={{}} >
+                <Container>footer</Container>
             </Paper>
-            </div>
+        </div>
 
     )
 }
