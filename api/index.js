@@ -190,7 +190,7 @@ app.get('/api/tag', async (req, res) => {
     const postDoc = await Post.find({}, 'tags').sort({ tags: 1 }).exec();
     let allTags = [];
     for (let i = 0; i < postDoc.length; i++) {
-        allTags = allTags.concat(postDoc[i].get('tags'))
+        allTags = allTags.concat(postDoc[i].get('tags')).sort()
     }
     let uniqueTags = [...new Set(allTags)];
     let json = [{ tags: uniqueTags }]
