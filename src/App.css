@@ -38,7 +38,7 @@ main{
   bottom: 0;
   right: 10%;
   left: auto;
-  height: 80vh;
+  height: 85vh;
   transform: scaleX(-1);
 }
 
