@@ -18,6 +18,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Logo from './resources/satria.png'
 import { useTheme } from '@mui/material/styles';
+import ThemeToggler from "./ThemeToggler";
 
 const drawerWidth = 240;
 
@@ -120,6 +121,9 @@ export default function Header(props) {
                                 src={Logo}
                             />
                         </Link>
+                    </Box>
+                    <Box alignContent='right'>
+                    <ThemeToggler/>
                     </Box>
                     <Box>
                         <IconButton

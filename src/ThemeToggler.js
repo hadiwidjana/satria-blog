@@ -25,10 +25,10 @@ export default function ThemeToggler() {
                     </>
                 ) : (
                     <>
-                        <Typography variant='button' sx={{ fontWeight: 'bold', color: 'primary.main' }}>
+                        <Typography variant='button' sx={{ fontWeight: 'bold', color: 'white' }}>
                             {theme.palette.mode} mode
                         </Typography>
-                        <Brightness4Icon />
+                        <Brightness4Icon sx={{color:'white'}}/>
                     </>
                 )}
             </IconButton>

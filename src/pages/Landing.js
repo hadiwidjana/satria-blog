@@ -43,8 +43,7 @@ export default function Landing({
                 </Box>
             </Box>
             <Box className='snapScrollDown' onClick={() => scrollto(goToSectionRef)}>
-                <Typography variant="subtitle2" color='white' textAlign='center'>Scoll down to read my blog
-                    articles</Typography>
+                <Typography variant="subtitle2" color='white' textAlign='center'>Scoll down to read my profile</Typography>
                 <ArrowCircleDownIcon sx={{mx: 'auto', display: 'flex', color: 'white'}}/>
             </Box>
         </>

@@ -15,26 +15,72 @@ main{
 }
 
 .section-2 {
+  height: 100vh;
+  width: 100%;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  scroll-snap-align: center;
+  text-align: center;
+}
+
+@media screen and (min-width: 900px){
+  .section-2 {
+    height: 50vh;
+    width: 100%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    scroll-snap-align: center;
+    text-align: center;
+  }
+}
+
+.section-3 {
   height: 85vh;
   width: 100%;
   display: block;
   justify-content: center;
   align-items: center;
   position: relative;
-  scroll-snap-align: start;
-  text-align: start;
+  scroll-snap-align: center;
+  text-align: center;
+}
+
+@media screen and (min-width: 900px){
+  .section-3 {
+    height: 100vh;
+    width: 100%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    scroll-snap-align: center;
+    text-align: center;
+  }
 }
 
 .about-me {
   position: absolute;
   object-position: center;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: 10%;
-  max-width: 1200px;
-  max-height: 500vh;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*margin: 10%;*/
+  max-width: 800px;
+  min-width: 400px;
+  padding: 1rem;
+  height: 30vh;
+}
+
+.main-paper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 70%;
   padding: 1rem;
 }
 

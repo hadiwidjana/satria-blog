@@ -8,6 +8,8 @@ import List from "@mui/material/List";
 import About from "./About";
 import BlogFilter from "../BlogFilter";
 import {blue} from "@mui/material/colors";
+import Tech from "./Tech";
+import Work from "./Work";
 
 
 
@@ -17,6 +19,8 @@ export default function IndexPage() {
     const [tags, setTags] = useState([])
     const landing = useRef()
     const aboutMe = useRef()
+    const techStack = useRef()
+    const work = useRef()
     const blog = useRef()
 
 
@@ -60,23 +64,30 @@ export default function IndexPage() {
                 <Landing scrollto={scrollto} goToSectionRef={aboutMe} />
             </Box>
             <Box className='section-2' ref={aboutMe} sx={{backgroundColor: blue[200]}} >
-                <About scrollto={scrollto} goToSectionRef={blog} />
+                <About scrollto={scrollto} goToSectionRef={techStack} />
+            </Box>
+            <Box className='section-3' ref={techStack} >
+                <Tech scrollto={scrollto} goToSectionRef={work} />
+            </Box>
+            <Box className='section' ref={work} sx={{backgroundColor: blue[200]}}>
+                <Work scrollto={scrollto} goToSectionRef={blog} />
             </Box>
 
-            <Box className='section' ref={blog} sx={{ }} scrollto={scrollto}>
-                <BlogFilter tags={tags} setLoading={setLoading} />
-                {/* <ThemeToggler /> */}
-                <List style={{ maxHeight: '80%', overflow: 'auto' }} >
-                    {posts.length > 0 && posts.map(post => (
-                        <Post {...post} />
-                    ))}
-                    <Box sx={{ mx: 'auto', textAlign: 'center' }}>
-                        {loading === true && (
-                            <CircularProgress />
-                        )}
-                    </Box>
-                </List>  
-            </Box>
+
+            {/*<Box className='section' ref={blog} sx={{ }} scrollto={scrollto}>*/}
+            {/*    <BlogFilter tags={tags} setLoading={setLoading} />*/}
+            {/*    /!* <ThemeToggler /> *!/*/}
+            {/*    <List style={{ maxHeight: '80%', overflow: 'auto' }} >*/}
+            {/*        {posts.length > 0 && posts.map(post => (*/}
+            {/*            <Post {...post} />*/}
+            {/*        ))}*/}
+            {/*        <Box sx={{ mx: 'auto', textAlign: 'center' }}>*/}
+            {/*            {loading === true && (*/}
+            {/*                <CircularProgress />*/}
+            {/*            )}*/}
+            {/*        </Box>*/}
+            {/*    </List>  */}
+            {/*</Box>*/}
         </div>
 
     )
