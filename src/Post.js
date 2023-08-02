@@ -22,7 +22,7 @@ export default function Post({ _id, title, tags, cover, content, createdAt, auth
                             image={cover}
                             alt={title}
                         />
-                        <CardContent>
+                        <CardContent className="post-content-card" sx={{textAlign: 'justify'}}>
                             <div>
                                 <Typography gutterBottom variant="h5" component="div" color="text.primary">
                                     {title}

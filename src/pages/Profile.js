@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
 import Granim from "granim";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import { Fade, Typography } from "@mui/material";
+import {Typography} from "@mui/material";
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
+import SelfPortrait from "../resources/SelfPortrait-bw.png";
 
 
 export default function Profile({
-    scrollto,
-    goToSectionRef,
-}) {
+                                    scrollto,
+                                    goToSectionRef,
+                                }) {
 
-        useEffect(() => {
+    useEffect(() => {
         new Granim({
             element: '#canvas-basic',
             direction: 'left-right',
@@ -31,11 +31,22 @@ export default function Profile({
     }, [])
 
 
-    return <>
-        <canvas id='canvas-basic' />
-        <Box className='snapScrollDown'  onClick={()=> scrollto(goToSectionRef)}>
-            <Typography variant="subtitle2" color='white' textAlign='center'>Scoll down to read my blog articles</Typography>
-            <ArrowCircleDownIcon sx={{mx: 'auto',display: 'flex', color:'white'}} />
-        </Box>
-    </>
+    return (
+        <>
+            <canvas id='canvas-basic'/>
+            <Box className='self-portrait' src={SelfPortrait} component="img"/>
+            <Box className='main-title'>
+                <Typography variant='h1' textAlign='left' fontWeight='bold'>I'm Satria</Typography>
+                <Box className='sub-title'>
+                    <Typography variant='h1' textAlign='left' color='primary' fontWeight='bold'>Test Automation</Typography>
+                    <Typography variant='h1' textAlign='left' fontWeight='bold'>Engineer</Typography>
+                </Box>
+            </Box>
+            <Box className='snapScrollDown' onClick={() => scrollto(goToSectionRef)}>
+                <Typography variant="subtitle2" color='white' textAlign='center'>Scoll down to read my blog
+                    articles</Typography>
+                <ArrowCircleDownIcon sx={{mx: 'auto', display: 'flex', color: 'white'}}/>
+            </Box>
+        </>
+    )
 }
