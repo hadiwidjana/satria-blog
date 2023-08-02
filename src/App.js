@@ -35,6 +35,12 @@ import { ColorModeContext } from './config/color-context';
 //     },
 // });
 
+const darkTheme = createTheme({
+    palette: {
+        mode: 'dark',
+    },
+});
+
 
 
 

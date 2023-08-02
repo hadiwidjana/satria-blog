@@ -1,14 +1,13 @@
 import { useEffect, useState, useRef } from "react";
 import Post from "../Post"
 import * as React from 'react';
-import { Paper } from "@mui/material";
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
-import Profile from "./Profile";
+import Landing from "./Landing";
 import List from "@mui/material/List";
-import ThemeToggler from "../ThemeToggler";
+import About from "./About";
 import BlogFilter from "../BlogFilter";
-import Container from '@mui/material/Container';
+import {blue} from "@mui/material/colors";
 
 
 
@@ -16,7 +15,8 @@ export default function IndexPage() {
     const [posts, setPosts] = useState([])
     const [loading, setLoading] = useState(false);
     const [tags, setTags] = useState([])
-    const profile = useRef()
+    const landing = useRef()
+    const aboutMe = useRef()
     const blog = useRef()
 
 
@@ -56,9 +56,13 @@ export default function IndexPage() {
 
     return (
         <div className="container">
-            <Box className='section' ref={profile} sx={{}} >
-                <Profile scrollto={scrollto} goToSectionRef={blog} />
+            <Box className='section' ref={landing} sx={{}} >
+                <Landing scrollto={scrollto} goToSectionRef={aboutMe} />
             </Box>
+            <Box className='section-2' ref={aboutMe} sx={{backgroundColor: blue[200]}} >
+                <About scrollto={scrollto} goToSectionRef={blog} />
+            </Box>
+
             <Box className='section' ref={blog} sx={{ }} scrollto={scrollto}>
                 <BlogFilter tags={tags} setLoading={setLoading} />
                 {/* <ThemeToggler /> */}

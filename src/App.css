@@ -14,6 +14,30 @@ main{
   text-align: center;
 }
 
+.section-2 {
+  height: 85vh;
+  width: 100%;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  scroll-snap-align: start;
+  text-align: start;
+}
+
+.about-me {
+  position: absolute;
+  object-position: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 10%;
+  max-width: 1200px;
+  max-height: 500vh;
+  padding: 1rem;
+}
+
 .snapScrollDown {
   width: fit-content;
   padding: 20px;
@@ -75,11 +99,11 @@ main{
   margin-left: auto;
   margin-right: auto;
   position: sticky;
-  position: -webkit-sticky;
-  padding: 4rem 0 1rem 0;
+  padding: 1rem 0 1rem 0;
   top: 0;
   width: 100%;
   max-width: 900px;
+  z-index: 1;
 }
 
 div.index-page{

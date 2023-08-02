@@ -19,9 +19,7 @@ import Button from '@mui/material/Button';
 import Logo from './resources/satria.png'
 import { useTheme } from '@mui/material/styles';
 
-
 const drawerWidth = 240;
-
 
 export default function Header(props) {
     const { window } = props;
@@ -93,13 +91,13 @@ export default function Header(props) {
                                 </Link>
                             } />
                         </ListItemButton>
-                        <ListItemButton sx={{ textAlign: 'center' }}>
-                            <ListItemText primary={
-                                <Link to={'/register'} style={{ textDecoration: 'none' }}>
-                                    <Typography variant="body3" color="text.secondary">Register</Typography>
-                                </Link>
-                            } />
-                        </ListItemButton>
+                        {/*<ListItemButton sx={{ textAlign: 'center' }}>*/}
+                        {/*    <ListItemText primary={*/}
+                        {/*        <Link to={'/register'} style={{ textDecoration: 'none' }}>*/}
+                        {/*            <Typography variant="body3" color="text.secondary">Register</Typography>*/}
+                        {/*        </Link>*/}
+                        {/*    } />*/}
+                        {/*</ListItemButton>*/}
                     </ListItem>
                 )}
             </List>
@@ -149,9 +147,9 @@ export default function Header(props) {
                                     <Link to={'/login'}>
                                         <Button sx={{ color: '#fff' }}>Login</Button>
                                     </Link>
-                                    <Link to={'/register'}>
-                                        <Button sx={{ color: '#fff' }}>Register</Button>
-                                    </Link>
+                                    {/*<Link to={'/register'}>*/}
+                                    {/*    <Button sx={{ color: '#fff' }}>Register</Button>*/}
+                                    {/*</Link>*/}
                                 </List>
                             )}
                         </Box>

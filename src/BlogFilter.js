@@ -1,6 +1,5 @@
 import { Box, FormControl, InputLabel, Select, OutlinedInput, MenuItem, Checkbox, ListItemText, TextField, Button } from "@mui/material";
 import * as React from 'react';
-import { useEffect, useState, useRef, useContext } from "react";
 import SearchIcon from '@mui/icons-material/Search';
 
 
@@ -47,7 +46,7 @@ export default function BlogFilter({ tags , setLoading, setPosts}) {
     }
 
     return (
-        <Box className='blog-container' >
+        <Box className='blog-container' sx={{backgroundColor:'background.default'}}>
                 {tags.length > 0 && tags.map(tag => (
                         <FormControl sx={{ width: '15%', display: 'inline-block', verticalAlign: 'bottom' }}>
                             <InputLabel>Tag</InputLabel>
