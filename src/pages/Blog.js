@@ -49,7 +49,7 @@ export default function Blog() {
     return (
         <Stack sx={{mt:'7em'}}>
                 <Typography variant='h3' align='center' fontWeight='bold' sx={{mb:'1em'}}>Satria's Blog</Typography>
-            <Paper elevation={3} sx={{maxWidth:'900px', mx:'auto', p:'2em'}}>
+            <Paper elevation={3} sx={{maxWidth:'100%', mx:'auto', p:'2em'}}>
                 <BlogFilter tags={tags} setLoading={setLoading} />
                 <Divider variant="middle" />
                 <List style={{ maxHeight: '80%', overflow: 'auto' }} >

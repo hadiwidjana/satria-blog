@@ -106,38 +106,38 @@ export default function Tech({
             {/*<Grid container spacing={2} sx={{mt: '1rem'}}>*/}
             <Grid
                 container
-                spacing={0}
+                spacing={2}
                 alignItems="center"
                 justifyContent="center"
                 sx={{minHeight: '20vh'}}
                 overflow='hidden'
             >
-                <Grid xs={12} sm={6} md={4} lg={3} ref={refTech1}>
+                <Grid xs={12} sm={6} md={4} lg={3} ref={refTech1} className='tech-grid'>
                     <Grow in={isInViewport1} style={{transitionDelay: isInViewport1 ? '500ms' : '0ms'}}>
                     <Card variant="outlined" sx={{aspectRatio: '1/1'}}>{pl}</Card>
                     </Grow>
                 </Grid>
-                <Grid xs={12} sm={6} md={4} lg={3} ref={refTech2}>
+                <Grid xs={12} sm={6} md={4} lg={3} ref={refTech2} className='tech-grid'>
                     <Grow in={isInViewport2} style={{transitionDelay: isInViewport2 ? '500ms' : '0ms'}}>
                         <Card variant="outlined" sx={{aspectRatio: '1/1'}}>{fe}</Card>
                     </Grow>
                 </Grid>
-                <Grid xs={12} sm={6} md={4} lg={3} ref={refTech3}>
+                <Grid xs={12} sm={6} md={4} lg={3} ref={refTech3} className='tech-grid'>
                     <Grow in={isInViewport3} style={{transitionDelay: isInViewport3 ? '500ms' : '0ms'}}>
                         <Card variant="outlined" sx={{aspectRatio: '1/1'}}>{be}</Card>
                     </Grow>
                 </Grid>
-                <Grid xs={12} sm={6} md={4} lg={3} ref={refTech4}>
+                <Grid xs={12} sm={6} md={4} lg={3} ref={refTech4} className='tech-grid'>
                     <Grow in={isInViewport4} style={{transitionDelay: isInViewport4 ? '500ms' : '0ms'}}>
                         <Card variant="outlined" sx={{aspectRatio: '1/1'}}>{lt}</Card>
                     </Grow>
                 </Grid>
-                <Grid xs={12} sm={6} md={4} lg={3}  ref={refTech5}>
+                <Grid xs={12} sm={6} md={4} lg={3}  ref={refTech5} className='tech-grid'>
                     <Grow in={isInViewport5} container={refTech5.current} style={{transitionDelay: isInViewport5 ? '500ms' : '0ms'}}>
                         <Card variant="outlined" sx={{aspectRatio: '1/1'}}>{ci}</Card>
                     </Grow>
                 </Grid>
-                <Grid xs={12} sm={6} md={4} lg={3}  ref={refTech6}>
+                <Grid xs={12} sm={6} md={4} lg={3}  ref={refTech6} className='tech-grid'>
                     <Grow in={isInViewport6} style={{transitionDelay: isInViewport6 ? '500ms' : '0ms'}}>
                         <Card variant="outlined" sx={{aspectRatio: '1/1'}}>{it}</Card>
                     </Grow>

@@ -15,10 +15,10 @@ export default function Work({
     };
 
     return (
-        <Paper className='tech-stack' elevation={5} style={{ overflow: 'auto'}}>
+        <Paper className='tech-stack' elevation={5} style={{ overflow: 'auto'}} sx={{pb:'3rem'}}>
             <Typography variant='h4' align='center' fontWeight='bold' sx={{margin: '2rem'}}>Work History</Typography>
             <div>
-                <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+                <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')} >
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel1bh-content"

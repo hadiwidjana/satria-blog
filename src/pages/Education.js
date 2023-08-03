@@ -20,7 +20,7 @@ export default function Education({
         <>
         {/*// <Paper className='education' elevation={5} style={{overflow: 'auto'}}>*/}
             <Typography variant='h4' align='center' fontWeight='bold' sx={{margin: '2rem'}}>Education</Typography>
-            <Paper sx={{p: '1vh', mb: '1vh', maxWidth:'800px', mx:'auto', bgcolor:'primary.main'}}>
+            <Paper className='ed-box' sx={{ bgcolor:'primary.main'}}>
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={2} sx={{}}>
                         <Avatar alt="Fazztrack" src={fazztrack} sx={{mx: 'auto', mt: '4vh', mb: '4vh'}}/>
@@ -33,7 +33,7 @@ export default function Education({
                     </Grid>
                 </Grid>
             </Paper>
-            <Paper sx={{p: '1vh', mb: '1vh', maxWidth:'800px', mx:'auto', bgcolor:'primary.main'}}>
+            <Paper className='ed-box' sx={{ bgcolor:'primary.main'}}>
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={2} sx={{}}>
                         <Avatar alt="Southampton" src={southampton} sx={{mx: 'auto', mt: '4vh', mb: '4vh'}}/>
