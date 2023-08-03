@@ -10,6 +10,7 @@ import BlogFilter from "../BlogFilter";
 import {blue} from "@mui/material/colors";
 import Tech from "./Tech";
 import Work from "./Work";
+import Education from "./Education";
 
 
 
@@ -60,17 +61,20 @@ export default function IndexPage() {
 
     return (
         <div className="container">
-            <Box className='section' ref={landing} sx={{}} >
-                <Landing scrollto={scrollto} goToSectionRef={aboutMe} />
+            <Box className='section' sx={{}} >
+                <Landing/>
             </Box>
-            <Box className='section-2' ref={aboutMe} sx={{backgroundColor: blue[200]}} >
-                <About scrollto={scrollto} goToSectionRef={techStack} />
+            <Box sx={{backgroundColor: 'primary.main'}} >
+                <About/>
             </Box>
-            <Box className='section-3' ref={techStack} >
-                <Tech scrollto={scrollto} goToSectionRef={work} />
+            <Box sx={{pt:'10vh',pb:'10vh'}}  >
+                <Tech />
             </Box>
-            <Box className='section' ref={work} sx={{backgroundColor: blue[200]}}>
-                <Work scrollto={scrollto} goToSectionRef={blog} />
+            <Box  sx={{backgroundColor: 'primary.main',pt:'10vh',pb:'10vh'}}>
+                <Work/>
+            </Box>
+            <Box sx={{pt:'10vh',pb:'10vh'}}  >
+                <Education />
             </Box>
 
 

@@ -46,7 +46,7 @@ export default function BlogFilter({ tags , setLoading, setPosts}) {
     }
 
     return (
-        <Box className='blog-container' sx={{backgroundColor:'background.default'}}>
+        <Box className='blog-container' sx={{backgroundColor:'background.default', mb:'2em'}}>
                 {tags.length > 0 && tags.map(tag => (
                         <FormControl sx={{ width: '15%', display: 'inline-block', verticalAlign: 'bottom' }}>
                             <InputLabel>Tag</InputLabel>

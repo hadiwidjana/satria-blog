@@ -15,6 +15,7 @@ import {useMediaQuery} from "@mui/material";
 import React from 'react';
 import { getDesignTokens, getThemedComponents } from './theme/Theme';
 import { ColorModeContext } from './config/color-context';
+import Blog from "./pages/Blog";
 
 
 
@@ -89,6 +90,7 @@ function App() {
                         <Route path='/create' element={<CreatePost/>}/>
                         <Route path='/post/:id' element={<PostPage/>}/>
                         <Route path='/edit/:id' element={<EditPost/>}/>
+                        <Route path='/blog' element={<Blog/>}/>
                     </Route>
                 </Routes>
             </UserContextProvider>

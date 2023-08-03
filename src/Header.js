@@ -16,9 +16,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import Logo from './resources/satria.png'
 import { useTheme } from '@mui/material/styles';
 import ThemeToggler from "./ThemeToggler";
+import { grey } from '@mui/material/colors';
+
+import { Wave } from "react-animated-text";
+
 
 const drawerWidth = 240;
 
@@ -27,6 +30,7 @@ export default function Header(props) {
     const theme = useTheme();
     const { userInfo, setUserInfo } = useContext(UserContext)
     const [mobileOpen, setMobileOpen] = React.useState(false);
+
 
 
     const handleDrawerToggle = () => {
@@ -69,6 +73,13 @@ export default function Header(props) {
                     <ListItem disablePadding sx={{ display: 'block' }}>
                         <ListItemButton sx={{ textAlign: 'center' }}>
                             <ListItemText primary={
+                                <Link to={'/blog'} style={{ textDecoration: 'none' }}>
+                                    <Typography variant="body3" color="text.secondary">Blog</Typography>
+                                </Link>
+                            } />
+                        </ListItemButton>
+                        <ListItemButton sx={{ textAlign: 'center' }}>
+                            <ListItemText primary={
                                 <Link to={'/create'} style={{ textDecoration: 'none' }}>
                                     <Typography variant="body3" color="text.secondary">Create a Post</Typography>
                                 </Link>
@@ -85,6 +96,13 @@ export default function Header(props) {
                 )}
                 {!username && (
                     <ListItem disablePadding sx={{ display: 'block' }}>
+                        <ListItemButton sx={{ textAlign: 'center' }}>
+                            <ListItemText primary={
+                                <Link to={'/blog'} style={{ textDecoration: 'none' }}>
+                                    <Typography variant="body3" color="text.secondary">Blog</Typography>
+                                </Link>
+                            } />
+                        </ListItemButton>
                         <ListItemButton sx={{ textAlign: 'center' }}>
                             <ListItemText primary={
                                 <Link to={'/login'} style={{ textDecoration: 'none' }}>
@@ -108,24 +126,19 @@ export default function Header(props) {
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar component="nav">
-                <Toolbar>
-                    <Box display='flex' flexGrow={1}>
+            <AppBar component="nav" sx={{boxShadow:'none', backgroundColor:'transparent', backgroundImage:'none'}}>
+                <Toolbar sx={{mt:'2em', mx:'1em'}}>
+                    <Box sx={{display:'inline-block'}}>
                         <Link to="/">
-                            <Box
-                                component="img"
-                                sx={{
-                                    width: '100%',
-                                    maxWidth: { xs: 100, sm: 130, md: 160, lg: 180, xl: 200 },
-                                }}
-                                src={Logo}
-                            />
+                            <Box sx={{width:'5rem', overflow:'hidden', height:'2rem'}}>
+                            <Typography variant='h6' color={grey[200]} fontWeight='bold'>SATRIA HOME</Typography>
+                            </Box>
                         </Link>
                     </Box>
-                    <Box alignContent='right'>
+                    <Box sx={{mx:'auto', display:'inline-block'}}>
                     <ThemeToggler/>
                     </Box>
-                    <Box>
+                    <Box sx={{display:'inline-block'}}>
                         <IconButton
                             color="primary"
                             aria-label="open drawer"
@@ -138,6 +151,9 @@ export default function Header(props) {
                         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                             {username && (
                                 <List>
+                                    <Link to={'/blog'}>
+                                        <Button sx={{ color: '#fff' }}>Blog</Button>
+                                    </Link>
                                     <Link to={'/create'}>
                                         <Button sx={{ color: '#fff' }}>Create a Post</Button>
                                     </Link>
@@ -148,6 +164,9 @@ export default function Header(props) {
                             )}
                             {!username && (
                                 <List>
+                                    <Link to={'/blog'}>
+                                        <Button sx={{ color: '#fff' }}>Blog</Button>
+                                    </Link>
                                     <Link to={'/login'}>
                                         <Button sx={{ color: '#fff' }}>Login</Button>
                                     </Link>

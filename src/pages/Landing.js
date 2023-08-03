@@ -42,7 +42,7 @@ export default function Landing({
                     <Typography variant='h1' textAlign='left' fontWeight='bold' color='white'>Engineer</Typography>
                 </Box>
             </Box>
-            <Box className='snapScrollDown' onClick={() => scrollto(goToSectionRef)}>
+            <Box className='snapScrollDown' >
                 <Typography variant="subtitle2" color='white' textAlign='center'>Scoll down to read my profile</Typography>
                 <ArrowCircleDownIcon sx={{mx: 'auto', display: 'flex', color: 'white'}}/>
             </Box>

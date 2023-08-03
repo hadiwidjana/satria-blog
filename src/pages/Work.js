@@ -15,7 +15,7 @@ export default function Work({
     };
 
     return (
-        <Paper className='main-paper' elevation={5} style={{maxHeight: '80vh', overflow: 'auto'}}>
+        <Paper className='tech-stack' elevation={5} style={{ overflow: 'auto'}}>
             <Typography variant='h4' align='center' fontWeight='bold' sx={{margin: '2rem'}}>Work History</Typography>
             <div>
                 <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
@@ -24,12 +24,14 @@ export default function Work({
                         aria-controls="panel1bh-content"
                         id="panel1bh-header"
                     >
-                        <Typography sx={{ width: '33%', flexShrink: 0 }}>
+                        <Typography sx={{ width: '100%', flexShrink: 0 }}>
                             Gokomodo
                         </Typography>
-                        <Typography sx={{ color: 'text.secondary' }}>Oct '22 - Present</Typography>
                     </AccordionSummary>
                     <AccordionDetails sx={{textAlign:'left'}}>
+                        <Typography sx={{ color: 'text.secondary' }}>
+                            Oct '22 - Present
+                        </Typography>
                         <Typography fontWeight='bold'>
                             QA Automation Engineer
                         </Typography>
@@ -49,12 +51,14 @@ export default function Work({
                         aria-controls="panel2bh-content"
                         id="panel2bh-header"
                     >
-                        <Typography sx={{ width: '33%', flexShrink: 0 }}>Migo</Typography>
-                        <Typography sx={{ color: 'text.secondary' }}>
-                            Sep '21 - Oct '22
+                        <Typography sx={{ width: '100%', flexShrink: 0 }}>
+                            Migo
                         </Typography>
                     </AccordionSummary>
                     <AccordionDetails sx={{textAlign:'left'}}>
+                        <Typography sx={{ color: 'text.secondary' }}>
+                            Sep '21 - Oct '22
+                        </Typography>
                         <Typography fontWeight='bold'>
                             Production Engineer
                         </Typography>
@@ -73,14 +77,14 @@ export default function Work({
                         aria-controls="panel3bh-content"
                         id="panel3bh-header"
                     >
-                        <Typography sx={{ width: '33%', flexShrink: 0 }}>
+                        <Typography sx={{ width: '100%', flexShrink: 0 }}>
                             Mobifix
-                        </Typography>
-                        <Typography sx={{ color: 'text.secondary' }}>
-                            Mar '18 - Jan '20
                         </Typography>
                     </AccordionSummary>
                     <AccordionDetails sx={{textAlign:'left'}}>
+                        <Typography sx={{ color: 'text.secondary' }}>
+                            Mar '18 - Jan '20
+                        </Typography>
                         <Typography fontWeight='bold'>
                             Store Manager
                         </Typography>
@@ -96,12 +100,14 @@ export default function Work({
                         aria-controls="panel4bh-content"
                         id="panel4bh-header"
                     >
-                        <Typography sx={{ width: '33%', flexShrink: 0 }}>Vivo</Typography>
-                        <Typography sx={{ color: 'text.secondary' }}>
-                            Sep '16 - Nov '17
+                        <Typography sx={{ width: '100%', flexShrink: 0 }}>
+                            Vivo
                         </Typography>
                     </AccordionSummary>
                     <AccordionDetails sx={{textAlign:'left'}}>
+                        <Typography sx={{ color: 'text.secondary' }}>
+                            Sep '16 - Nov '17
+                        </Typography>
                         <Typography fontWeight='bold'>
                             Production Engineer
                         </Typography>
