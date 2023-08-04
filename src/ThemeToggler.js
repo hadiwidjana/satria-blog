@@ -20,30 +20,6 @@ export default function ThemeToggler() {
 
 
     return (
-        // <Container className="themeToggler">
-        //
-        //     <IconButton
-        //         onClick={colorMode.toggleColorMode}
-        //         color='primary'
-        //     >
-        //         {theme.palette.mode === 'dark' ? (
-        //             <>
-        //                 <Typography variant='button' sx={{ fontWeight: 'bold', color: 'primary.main' }}>
-        //                     {theme.palette.mode} mode
-        //                 </Typography>
-        //                 <Brightness7Icon />
-        //             </>
-        //         ) : (
-        //             <>
-        //                 <Typography variant='button' sx={{ fontWeight: 'bold', color: 'white' }}>
-        //                     {theme.palette.mode} mode
-        //                 </Typography>
-        //                 <Brightness4Icon sx={{color:'white'}}/>
-        //             </>
-        //         )}
-        //     </IconButton>
-        //
-        // </Container>
         <Box>
             <input
                 checked={value}
@@ -59,12 +35,12 @@ export default function ThemeToggler() {
             >
               {theme.palette.mode === 'dark' ? (
                 <span className={`react-switch-button`}>
-                    <Brightness4Icon color='primary' fontSize='large' sx={{display:'block', mx:'auto', mt:'5px'}}/>
+                    <Brightness4Icon color='primary' fontSize='small' sx={{display:'block', mx:'auto', mt:'5px'}}/>
                 </span>
                   ) : (
 
                   <span className={`react-switch-button`}>
-                    <Brightness7Icon color='primary' fontSize='large' sx={{display:'block', mx:'auto', mt:'5px'}}/>
+                    <Brightness7Icon color='primary' fontSize='small' sx={{display:'block', mx:'auto', mt:'5px'}}/>
                 </span>
                       )}
 

@@ -3,6 +3,24 @@ main{
   /*background-color: #2d2d2d;*/
 }
 
+.landing-main {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+}
+
+.canvas-items{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+
+
+
 .section {
   height: 100vh;
   width: 100%;

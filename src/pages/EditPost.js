@@ -5,6 +5,8 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import SendIcon from '@mui/icons-material/Send';
+import {Typography} from "@mui/material";
+import * as React from "react";
 
 
 export default function EditPost() {
@@ -65,6 +67,8 @@ export default function EditPost() {
     }
 
     return (
+        <Stack sx={{mt:'7em'}}>
+            <Typography variant='h3' align='center' fontWeight='bold' sx={{mb:'1em'}}>Edit Post</Typography>
 
         <Stack
             className='post'
@@ -94,6 +98,7 @@ export default function EditPost() {
                     type="submit"
                     endIcon={<SendIcon/>}>Update Post</Button>
             </Stack>
+        </Stack>
         </Stack>
     )
 }

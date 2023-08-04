@@ -16,6 +16,7 @@ import React from 'react';
 import { getDesignTokens, getThemedComponents } from './theme/Theme';
 import { ColorModeContext } from './config/color-context';
 import Blog from "./pages/Blog";
+import About from "./pages/About";
 
 
 
@@ -91,6 +92,7 @@ function App() {
                         <Route path='/post/:id' element={<PostPage/>}/>
                         <Route path='/edit/:id' element={<EditPost/>}/>
                         <Route path='/blog' element={<Blog/>}/>
+                        <Route path='/about' element={<About/>}/>
                     </Route>
                 </Routes>
             </UserContextProvider>

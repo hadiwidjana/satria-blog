@@ -9,8 +9,8 @@
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    width: 100px;
-    height: 50px;
+    width: 70px;
+    height: 35px;
     background: grey;
     border-radius: 100px;
     position: relative;
@@ -22,8 +22,8 @@
     position: absolute;
     top: 2px;
     left: 2px;
-    width: 45px;
-    height: 45px;
+    width: 30px;
+    height: 30px;
     border-radius: 45px;
     transition: 0.2s;
     background: #fff;
@@ -33,8 +33,4 @@
 .react-switch-checkbox:checked + .react-switch-label .react-switch-button {
     left: calc(100% - 2px);
     transform: translateX(-100%);
-}
-
-.react-switch-label:active .react-switch-button {
-    width: 60px;
 }

@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import {useContext, useEffect, useRef} from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "./UserContext";
 import * as React from 'react';
@@ -18,18 +18,18 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { useTheme } from '@mui/material/styles';
 import ThemeToggler from "./ThemeToggler";
-import { grey } from '@mui/material/colors';
 
-import { Wave } from "react-animated-text";
 
 
 const drawerWidth = 240;
 
 export default function Header(props) {
-    const { window } = props;
+    const { windows } = props;
     const theme = useTheme();
     const { userInfo, setUserInfo } = useContext(UserContext)
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    const windowWidth = useRef(window.innerWidth);
+
 
 
 
@@ -37,7 +37,7 @@ export default function Header(props) {
         setMobileOpen((prevState) => !prevState);
     };
 
-    const container = window !== undefined ? () => window().document.body : undefined;
+    const container = windows !== undefined ? () => windows().document.body : undefined;
 
 
 
@@ -64,9 +64,11 @@ export default function Header(props) {
 
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-            <Typography variant="h6" sx={{ my: 2 }}>
-                NAVIGATION
+            <Link to={'/'} style={{ textDecoration: 'none' }}>
+            <Typography variant="h6" color='text.secondary' sx={{ my: 2 }}>
+                HOME
             </Typography>
+            </Link>
             <Divider />
             <List>
                 {username && (
@@ -75,6 +77,13 @@ export default function Header(props) {
                             <ListItemText primary={
                                 <Link to={'/blog'} style={{ textDecoration: 'none' }}>
                                     <Typography variant="body3" color="text.secondary">Blog</Typography>
+                                </Link>
+                            } />
+                        </ListItemButton>
+                        <ListItemButton sx={{ textAlign: 'center' }}>
+                            <ListItemText primary={
+                                <Link to={'/about'} style={{ textDecoration: 'none' }}>
+                                    <Typography variant="body3" color="text.secondary">About Me</Typography>
                                 </Link>
                             } />
                         </ListItemButton>
@@ -105,6 +114,13 @@ export default function Header(props) {
                         </ListItemButton>
                         <ListItemButton sx={{ textAlign: 'center' }}>
                             <ListItemText primary={
+                                <Link to={'/about'} style={{ textDecoration: 'none' }}>
+                                    <Typography variant="body3" color="text.secondary">About Me</Typography>
+                                </Link>
+                            } />
+                        </ListItemButton>
+                        <ListItemButton sx={{ textAlign: 'center' }}>
+                            <ListItemText primary={
                                 <Link to={'/login'} style={{ textDecoration: 'none' }}>
                                     <Typography variant="body3" color="text.secondary">Login</Typography>
                                 </Link>
@@ -127,18 +143,14 @@ export default function Header(props) {
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
             <AppBar component="nav" sx={{boxShadow:'none', backgroundColor:'transparent', backgroundImage:'none'}}>
-                <Toolbar sx={{mt:'2em', mx:'1em'}}>
-                    <Box sx={{display:'inline-block'}}>
+                <Toolbar sx={{mt:'2em', mx:{sm:'auto',xs:'1em'}}}>
+                    <Box sx={{display:{sm:'inline-block'}, flexGrow:{xs:1}}}>
                         <Link to="/">
-                            <Box sx={{width:'5rem', overflow:'hidden', height:'2rem'}}>
-                            <Typography variant='h6' color={grey[200]} fontWeight='bold'>SATRIA HOME</Typography>
-                            </Box>
+                            <Typography variant='h6' color='primary.main'fontWeight='bold'>SATRIA</Typography>
                         </Link>
                     </Box>
-                    <Box sx={{mx:'auto', display:'inline-block'}}>
-                    <ThemeToggler/>
-                    </Box>
-                    <Box sx={{display:'inline-block'}}>
+
+                    <Box sx={{display:{sm:'inline-block'}}}>
                         <IconButton
                             color="primary"
                             aria-label="open drawer"
@@ -146,29 +158,35 @@ export default function Header(props) {
                             onClick={handleDrawerToggle}
                             sx={{ mr: 2, display: { sm: 'none' } }}
                         >
-                            <MenuIcon sx={{ color: 'white' }} />
+                            <MenuIcon sx={{ color: 'primary.main' }} />
                         </IconButton>
                         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                             {username && (
                                 <List>
                                     <Link to={'/blog'}>
-                                        <Button sx={{ color: '#fff' }}>Blog</Button>
+                                        <Button sx={{ color: 'primary.main' }}>Blog</Button>
+                                    </Link>
+                                    <Link to={'/about'}>
+                                        <Button sx={{ color: 'primary.main' }}>About Me</Button>
                                     </Link>
                                     <Link to={'/create'}>
-                                        <Button sx={{ color: '#fff' }}>Create a Post</Button>
+                                        <Button sx={{ color: 'primary.main' }}>Create a Post</Button>
                                     </Link>
                                     <Link to={'/'}>
-                                        <Button sx={{ color: '#fff' }} onClick={logout}>Logout</Button>
+                                        <Button sx={{ color: 'primary.main' }} onClick={logout}>Logout</Button>
                                     </Link>
                                 </List>
                             )}
                             {!username && (
                                 <List>
                                     <Link to={'/blog'}>
-                                        <Button sx={{ color: '#fff' }}>Blog</Button>
+                                        <Button sx={{ color: 'primary.main' }}>Blog</Button>
+                                    </Link>
+                                    <Link to={'/about'}>
+                                        <Button sx={{ color: 'primary.main' }}>About Me</Button>
                                     </Link>
                                     <Link to={'/login'}>
-                                        <Button sx={{ color: '#fff' }}>Login</Button>
+                                        <Button sx={{ color: 'primary.main' }}>Login</Button>
                                     </Link>
                                     {/*<Link to={'/register'}>*/}
                                     {/*    <Button sx={{ color: '#fff' }}>Register</Button>*/}
@@ -177,6 +195,12 @@ export default function Header(props) {
                             )}
                         </Box>
                     </Box>
+                    {windowWidth.current >= 600 ? (
+                        <Box sx={{ display: {sm: 'inline-block', xs: 'none'}}}>
+                            <ThemeToggler/>
+                        </Box>
+                    ):(null)}
+
                 </Toolbar>
             </AppBar>
             <Box component="nav">
@@ -195,6 +219,13 @@ export default function Header(props) {
                     }}
                 >
                     {drawer}
+                    {windowWidth.current <= 600 ? (
+                        <Box sx={{ mx:'auto', height:'100%'}}>
+                            <Box sx={{bottom:'10%', position:'absolute', left:'35%'}}>
+                            <ThemeToggler/>
+                            </Box>
+                        </Box>
+                    ):(null)}
                 </Drawer>
             </Box>
         </Box>

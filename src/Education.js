@@ -1,8 +1,8 @@
 import React from "react";
 import {Accordion, AccordionDetails, AccordionSummary, Avatar, Box, Paper, styled, Typography} from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-import fazztrack from "../resources/fazztrack.png"
-import southampton from "../resources/southampton.png"
+import fazztrack from "./resources/fazztrack.png"
+import southampton from "./resources/southampton.png"
 
 
 const fazzCourses = `Main courses: QA Fundamental, Git and version control, Javascript, API and Postman, Mocha and Chai, Cypress, and MySQL`;

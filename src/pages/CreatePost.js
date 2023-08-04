@@ -5,6 +5,8 @@ import SendIcon from '@mui/icons-material/Send';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import {Typography} from "@mui/material";
+import * as React from "react";
 
 
 export default function CreatePost() {
@@ -35,7 +37,7 @@ export default function CreatePost() {
     }
 
     if (redirect) {
-        return <Navigate to={'/'}/>
+        return <Navigate to={'/blog'}/>
     }
 
     return (
@@ -49,7 +51,8 @@ export default function CreatePost() {
         //     <Button variant="contained" type='submit' endIcon={<SendIcon/>}>Hello World</Button>
         // </form>
 
-
+        <Stack sx={{mt:'7em'}}>
+            <Typography variant='h3' align='center' fontWeight='bold' sx={{mb:'1em'}}>Create New Post</Typography>
         <Stack
             className='post'
             onSubmit={createNewPost}
@@ -79,6 +82,7 @@ export default function CreatePost() {
                     type="submit"
                     endIcon={<SendIcon/>}>Send Post</Button>
             </Stack>
+        </Stack>
         </Stack>
 
     )
