@@ -18,10 +18,37 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { useTheme } from '@mui/material/styles';
 import ThemeToggler from "./ThemeToggler";
+import {Slide, useScrollTrigger} from "@mui/material";
+import PropTypes from "prop-types";
 
 
 
 const drawerWidth = 240;
+
+function HideOnScroll(props) {
+    const { children, window } = props;
+    // Note that you normally won't need to set the window ref as useScrollTrigger
+    // will default to window.
+    // This is only being set here because the demo is in an iframe.
+    const trigger = useScrollTrigger({
+        target: window ? window() : undefined,
+    });
+
+    return (
+        <Slide appear={false} direction="down" in={!trigger}>
+            {children}
+        </Slide>
+    );
+}
+
+HideOnScroll.propTypes = {
+    children: PropTypes.element.isRequired,
+    /**
+     * Injected by the documentation to work in an iframe.
+     * You won't need it on your project.
+     */
+    window: PropTypes.func,
+};
 
 export default function Header(props) {
     const { windows } = props;
@@ -29,8 +56,6 @@ export default function Header(props) {
     const { userInfo, setUserInfo } = useContext(UserContext)
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const windowWidth = useRef(window.innerWidth);
-
-
 
 
     const handleDrawerToggle = () => {
@@ -142,14 +167,16 @@ export default function Header(props) {
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar component="nav" sx={{boxShadow:'none', backgroundColor:'transparent', backgroundImage:'none'}}>
+            <HideOnScroll {...props}>
+            <AppBar component="nav"
+                    sx={{boxShadow:'none', backgroundColor:'transparent', backgroundImage:'none'}}
+            >
                 <Toolbar sx={{mt:'2em', mx:{sm:'auto',xs:'1em'}}}>
                     <Box sx={{display:{sm:'inline-block'}, flexGrow:{xs:1}}}>
                         <Link to="/">
                             <Typography variant='h6' color='primary.main'fontWeight='bold'>SATRIA</Typography>
                         </Link>
                     </Box>
-
                     <Box sx={{display:{sm:'inline-block'}}}>
                         <IconButton
                             color="primary"
@@ -195,14 +222,16 @@ export default function Header(props) {
                             )}
                         </Box>
                     </Box>
-                    {windowWidth.current >= 600 ? (
-                        <Box sx={{ display: {sm: 'inline-block', xs: 'none'}}}>
-                            <ThemeToggler/>
-                        </Box>
-                    ):(null)}
+                        {windowWidth.current >= 600 ? (
+                            <Box sx={{ display: {sm: 'inline-block', xs: 'none'}}}>
+                                <ThemeToggler/>
+                            </Box>
+                        ):(null)}
+
 
                 </Toolbar>
             </AppBar>
+            </HideOnScroll>
             <Box component="nav">
                 <Drawer
                     anchor="right"

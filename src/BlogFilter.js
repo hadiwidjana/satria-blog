@@ -66,9 +66,9 @@ export default function BlogFilter({tags, setLoading, setPosts}) {
                 justifyContent="center"
                 overflow='hidden'
             >
-                <Grid xs={12} md={2}>
+                <Grid xs={12} md={2} >
                     {tags.length > 0 && tags.map(tag => (
-                        <FormControl sx={{ width:'100%', display: 'inline-block', verticalAlign: 'bottom'}}>
+                        <FormControl sx={{ width:'100%', display: 'inline-block', verticalAlign: 'bottom', bgcolor:'background.default'}}>
                             <InputLabel>Tag</InputLabel>
                             <Select
                                 fullWidth
@@ -90,11 +90,11 @@ export default function BlogFilter({tags, setLoading, setPosts}) {
                 </Grid>
                 <Grid xs={12} md={8}>
                     <TextField id="outlined-basic" label="Search Blog" variant="outlined" inputRef={searchRef}
-                               sx={{width: '100%'}}/>
+                               sx={{width: '100%', bgcolor:'background.default'}}/>
                 </Grid>
                 <Grid xs={12} md={2}>
                     <Button variant="outlined" onClick={search}
-                            sx={{width: '100%', height: '56px'}}><SearchIcon/></Button>
+                            sx={{width: '100%', height: '56px', bgcolor:'background.default'}}><SearchIcon/></Button>
                 </Grid>
             </Grid>
         </Box>

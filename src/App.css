@@ -112,7 +112,7 @@ main{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  position: sticky;
+  /*position: sticky;*/
   top: 0;
   width: 100%;
   max-width: 900px;
