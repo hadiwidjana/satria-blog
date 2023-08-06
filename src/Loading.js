@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import useMeasure from "react-use-measure";
 import {animated, useSpring} from "@react-spring/web";
 import styles from "./styles.module.css";
+import {Box} from "@mui/material";
 
 export default function Loading({}) {
     const [open, setOpen] = useState(false)
@@ -21,7 +22,7 @@ export default function Loading({}) {
         text: open ? 100 : 0,
         onRest: () => {
             setClose(true);
-        }
+        },
 
     })
     const props2 = useSpring({

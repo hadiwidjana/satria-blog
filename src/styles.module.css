@@ -40,7 +40,8 @@
 
 .bg {
     position: absolute;
-    height: 100vh;
+    height: 100%;
     width: 100%;
-    background-color: gray(200);
+    z-index: 1;
+    background-color: black;
 }
