@@ -1,27 +1,9 @@
-import React, { useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import './Welcome.css'
+import { OrbitControls } from '@react-three/drei'
+import {randInt} from "three/src/math/MathUtils";
 
-
-
-export default function Welcome({}) {
-
-
-
-    return (
-        <div className="test">
-            <Canvas>
-                <ambientLight intensity={0.5} />
-                <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-                <pointLight position={[-2, -2, -2]} />
-                <Box position={[0, 0, 0]} />
-            </Canvas>
-        </div>
-
-    )
-}
-
-function Box(props) {
+function Box() {
     // This reference gives us direct access to the THREE.Mesh object
     const ref = useRef()
     // Hold state for hovered and clicked events
@@ -32,14 +14,43 @@ function Box(props) {
     // Return the view, these are regular Threejs elements expressed in JSX
     return (
         <mesh
-            {...props}
+            position={[3-(Math.random()*6), 3-(Math.random()*6), 3-(Math.random()*6)]}
             ref={ref}
-            // scale={clicked ? 1.5 : 1}
-            onClick={(event) => click(!clicked)}
-            onPointerOver={(event) => (event.stopPropagation(), hover(true))}
-            onPointerOut={(event) => hover(false)}>
+            scale={0.1 + (Math.random() * 0.5)}
+            // onClick={(event) => click(!clicked)}
+            // onPointerOver={(event) => (event.stopPropagation(), hover(true))}
+            // onPointerOut={(event) => hover(false)}
+            >
             <boxGeometry args={[1, 1, 1]} />
-            {/*<meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />*/}
+            <meshStandardMaterial color={Math.random() < 0.5 ? 'dodgerblue' : 'grey'} />
         </mesh>
+    )
+}
+
+function Lights() {
+    return (
+        <group>
+            <pointLight intensity={5} position={[0,0,0]}/>
+            <ambientLight intensity={2} />
+            <spotLight
+                castShadow
+                intensity={1}
+                angle={Math.PI / 7}
+                position={[100, 100, 100]}
+                penumbra={1}
+                shadow-mapSize-width={2048}
+                shadow-mapSize-height={2048}
+            />
+        </group>
+    )
+}
+
+export default function Welcome() {
+    return (
+        <Canvas>
+            <Lights />
+            <Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  />
+            {/*<OrbitControls />*/}
+        </Canvas>
     )
 }

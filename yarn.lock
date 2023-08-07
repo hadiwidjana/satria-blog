@@ -2052,7 +2052,7 @@
     "@react-spring/shared" "~9.7.3"
     "@react-spring/types" "~9.7.3"
 
-"@react-three/drei@^9.80.1":
+"@react-three/drei@^9.78.1":
   version "9.80.1"
   resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-9.80.1.tgz#6e45dff60a92643c67cde44415a6ef153377bbef"
   integrity sha512-BlntSFEQb+Zhtj1zVfVv4ts/Co6GUBeZLPgG4SYhecKdGy1ctFaH2Tb8Z8HIl8PToUeWEDfKO4g4+/pE89YrEw==
@@ -2080,7 +2080,7 @@
     utility-types "^3.10.0"
     zustand "^3.5.13"
 
-"@react-three/fiber@^8.13.6":
+"@react-three/fiber@^8.13.4":
   version "8.13.6"
   resolved "https://registry.yarnpkg.com/@react-three/fiber/-/fiber-8.13.6.tgz#6be6e9548e7c70cefa5e250550dd9b1e1698f487"
   integrity sha512-V49lldHcbsC7PMnnf4aYrMpHPQe8R7hJYL0AEFjqwioY0nkwga9A+Jx6lCLVG02DF03xwCfJZv5cjZCChffsWg==

@@ -7,7 +7,7 @@ import Welcome from "../Welcome";
 export default function IndexPage() {
     return (
         <Box className='landing-main'>
-            <Loading/>
+            {/*<Loading/>*/}
             <Welcome/>
         </Box>
 
