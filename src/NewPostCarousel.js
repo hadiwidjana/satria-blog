@@ -62,7 +62,7 @@ export default function NewPostCarousel({arr}) {
                         width:'90%',
                         objectPosition: 'center',
                     }}>
-                        <Typography variant="h4" color="white" mb={1}>
+                        <Typography variant="h6" fontWeight='bold' color="white" mb={1}>
                             {i.title}
                         </Typography>
                     </CardContent>
@@ -74,8 +74,8 @@ export default function NewPostCarousel({arr}) {
 
     return (
         <Box sx={{
-            width: '80%',
-            height: '50vh',
+            width: '40vh',
+            height: '40vh',
             mx: 'auto',
             textAlign: 'center',
             maxWidth:'900px',

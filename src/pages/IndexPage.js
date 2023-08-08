@@ -46,9 +46,12 @@ export default function IndexPage() {
                     <Loading/>
                 </ParallaxLayer>
                 <ParallaxLayer offset={1} speed={1} style={{}}>
-                        {posts.length > 0 ?
+                    <ParallaxLayer offset={0} speed={0.25} style={{}} horizontal>
+
+                    {posts.length > 0 ?
                             <NewPostCarousel arr={posts}/> : null
                         }
+                    </ParallaxLayer>
                 </ParallaxLayer>
 
             </Parallax>
