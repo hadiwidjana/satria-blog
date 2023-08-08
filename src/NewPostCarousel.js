@@ -4,6 +4,7 @@ import {useEffect, useMemo, useState} from "react";
 import CardMedia from "@mui/material/CardMedia";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import {Link} from "react-router-dom";
 
 
 export default function NewPostCarousel({arr}) {
@@ -29,6 +30,8 @@ export default function NewPostCarousel({arr}) {
                     overflow:'hidden',
                     borderRadius:'1em'
                 }}>
+                    <Link to={`/post/${i._id}`} style={{ textDecoration: 'none' }} className='card-link'>
+
                     <CardMedia
                         component="img"
                         image={i.cover}
@@ -66,6 +69,8 @@ export default function NewPostCarousel({arr}) {
                             {i.title}
                         </Typography>
                     </CardContent>
+                    </Link>
+
                 </Card>
             ),
         })),
@@ -79,7 +84,6 @@ export default function NewPostCarousel({arr}) {
             mx: 'auto',
             textAlign: 'center',
             maxWidth:'900px',
-            marginTop: '60%',
         }}>
             {/*<Box className='new-post' sx={{height: '100%', width: '10%', display: 'inline-block'}} overflow={'hidden'}>*/}
             {/*    <Button onClick={slideToPrevItem}*/}
