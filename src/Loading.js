@@ -9,7 +9,6 @@ export default function Loading({}) {
     const [close, setClose] = useState(false)
     useEffect(() => {
         setOpen(true)
-        console.log(close)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [close])
     const [ref, {width}] = useMeasure()

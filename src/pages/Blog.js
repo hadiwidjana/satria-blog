@@ -8,6 +8,7 @@ import BlogFilter from "../BlogFilter";
 import {Paper, Typography} from "@mui/material";
 import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
+import NewPostCarousel from "../NewPostCarousel";
 
 
 

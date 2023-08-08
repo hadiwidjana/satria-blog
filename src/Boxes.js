@@ -10,7 +10,10 @@ function Box() {
     const [hovered, hover] = useState(false)
     const [clicked, click] = useState(false)
     // Subscribe this component to the render-loop, rotate the mesh every frame
-    useFrame((state, delta) => (ref.current.rotation.x += delta))
+    useFrame((state, delta) => {
+        ref.current.rotation.x += delta;
+        ref.current.rotation.y += delta;
+    })
     // Return the view, these are regular Threejs elements expressed in JSX
     return (
         <mesh
@@ -30,7 +33,7 @@ function Box() {
 function Lights() {
     return (
         <group>
-            <pointLight intensity={5} position={[0,0,0]}/>
+            <pointLight intensity={20} position={[0,0,5]}/>
             <ambientLight intensity={2} />
             <spotLight
                 castShadow
@@ -45,11 +48,11 @@ function Lights() {
     )
 }
 
-export default function Welcome() {
+export default function Boxes() {
     return (
         <Canvas>
             <Lights />
-            <Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  />
+            <Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  /><Box  />
             {/*<OrbitControls />*/}
         </Canvas>
     )
