@@ -1,6 +1,6 @@
 import {useContext, useEffect, useRef} from "react";
 import { Link } from "react-router-dom";
-import { UserContext } from "./UserContext";
+import { UserContext } from "../UserContext";
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -171,13 +171,19 @@ export default function Header(props) {
             <AppBar component="nav"
                     sx={{boxShadow:'none', backgroundColor:'transparent', backgroundImage:'none'}}
             >
-                <Toolbar sx={{mt:'2em', mx:{sm:'auto',xs:'1em'}}}>
-                    <Box sx={{display:{sm:'inline-block'}, flexGrow:{xs:1}}}>
+                <Toolbar sx={{mt:'2em', mx:{sm:'2em',xs:'1em'}}}>
+
+                    {/*web title*/}
+                    <Box sx={{ flexGrow:1}}>
                         <Link to="/">
-                            <Typography variant='h6' color='primary.main'fontWeight='bold'>SATRIA</Typography>
+                            <Typography variant='body1' color='primary.main'>Blog by Satria</Typography>
                         </Link>
                     </Box>
-                    <Box sx={{display:{sm:'inline-block'}}}>
+
+                    {/*menu*/}
+                    <Box sx={{}}>
+
+                        {/*burger icon*/}
                         <IconButton
                             color="primary"
                             aria-label="open drawer"
@@ -187,6 +193,8 @@ export default function Header(props) {
                         >
                             <MenuIcon sx={{ color: 'primary.main' }} />
                         </IconButton>
+
+                        {/*menu*/}
                         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                             {username && (
                                 <List>

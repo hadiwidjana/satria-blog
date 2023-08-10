@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {Navigate} from 'react-router-dom';
-import Editor from '../Editor';
+import Editor from '../components/Editor';
 import SendIcon from '@mui/icons-material/Send';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';

@@ -1,0 +1,69 @@
+/* external css: flickity.css */
+
+
+:root {
+    --height-sm: 35em;
+    --height-xs: 15em;
+    --width-sm: 40%;
+    --width-xs: 80%;
+}
+
+
+.carousel {
+    width: 100%;
+    padding-left: 1%;
+
+}
+
+
+.carousel-cell {
+    width: var(--width-xs);
+    height: var(--height-xs);
+    margin-right: 20px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+
+
+.carousel-cell-image {
+    min-width: var(--width-xs);
+    min-height: var(--height-xs);
+    object-fit: cover;
+}
+
+.carousel-blog-title {
+    position: absolute;
+    bottom: 40%;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px dimgrey;
+}
+
+/* cell number */
+.carousel-cell:before {
+
+}
+
+.flickity-enabled:focus {
+    outline: none;
+}
+
+@media screen and ( min-width: 900px ) {
+    .carousel-cell {
+        height: var(--height-sm);
+        width: var(--width-sm);
+
+    }
+
+    .carousel-cell-image {
+        min-height: var(--height-sm);
+        min-width: var(--width-sm);
+
+    }
+
+
+}
+

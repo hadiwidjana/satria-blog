@@ -3,7 +3,7 @@ import Granim from "granim";
 import Box from "@mui/material/Box";
 import {Typography} from "@mui/material";
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
-import SelfPortrait from "./resources/SelfPortrait-bw.png";
+import SelfPortrait from "../resources/SelfPortrait-bw.png";
 
 
 export default function Landing({

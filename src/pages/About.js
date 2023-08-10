@@ -1,10 +1,10 @@
 import React, {useEffect, useMemo, useRef, useState} from "react";
 import {Box, FormControlLabel, Switch, Typography, Zoom} from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-import Landing from "../Landing";
-import Tech from "../Tech";
-import Work from "../Work";
-import Education from "../Education";
+import Landing from "../components/Landing";
+import Tech from "../components/Tech";
+import Work from "../components/Work";
+import Education from "../components/Education";
 
 
 const summary1 = 'Automation Test Engineer with an objective of creating robust testing frameworks. With some experience in Java, JavaScript, and TypeScript, I have honed my skills in crafting efficient and reliable testing solutions. '

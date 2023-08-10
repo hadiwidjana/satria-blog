@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import Post from "../Post"
+import Post from "../components/Post"
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import List from "@mui/material/List";
-import BlogFilter from "../BlogFilter";
+import BlogFilter from "../components/BlogFilter";
 import {Paper, Typography} from "@mui/material";
 import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
-import NewPostCarousel from "../NewPostCarousel";
+import NewPostCarousel from "../components/NewPostCarousel";
 
 
 
