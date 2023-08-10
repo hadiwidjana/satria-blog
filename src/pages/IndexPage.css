@@ -11,21 +11,31 @@
 
 .description-recent {
     position: relative;
-    margin-bottom: 2em;
 }
 
 @media screen and (min-width:1152px){
     .section-2-text {
-        padding: 2em 15em;
+        padding: 4em 15em;
         justify-content: space-between;
     }
 
     .description-recent {
         order:1;
         width: 30em;
+        margin-bottom: 0;
+
     }
 
     .rotating-recent {
         order:2;
     }
 }
+
+
+.cursor{animation:1s blink step-end infinite}
+@keyframes blink{from,to{color:transparent}50%{color:var(--mui-text-primary)}}
+@-moz-keyframes blink{from,to{color:transparent}50%{color:var(--mui-text-primary)}}
+@-webkit-keyframes blink{from,to{color:transparent}50%{color:var(--mui-text-primary)}}
+@-ms-keyframes blink{from,to{color:transparent}50%{color:var(--mui-text-primary)}}
+@-o-keyframes blink{from,to{color:transparent}50%{color:var(--mui-text-primary)}}
+

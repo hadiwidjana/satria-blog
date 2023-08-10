@@ -2,12 +2,14 @@ import React, {createRef, useEffect, useMemo, useRef, useState} from 'react'
 import {Box, Icon, SvgIcon, Typography} from "@mui/material";
 import Loading from "../components/Loading";
 import Boxes from "../components/Boxes";
-import {Parallax, ParallaxLayer} from '@react-spring/parallax'
+import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import {ReactComponent as Recent} from '../resources/recent-articles.svg'
 import NewPostCarousel from "../components/NewPostCarousel";
 import {useScroll, animated, useSpring} from '@react-spring/web'
 import Button from "@mui/material/Button";
 import './IndexPage.css'
+import {Link} from "react-router-dom";
+import Typewriter from "../components/Typewriter";
 
 
 export default function IndexPage() {
@@ -39,6 +41,8 @@ export default function IndexPage() {
     const {scrollYProgress} = useScroll({
         container: scrollRef
     })
+
+    const srcString = 'Welcome to My Blog'
 
 
     useEffect(() => {
@@ -93,17 +97,16 @@ export default function IndexPage() {
                 </Box>
             </Box>
 
-            <Box sx={{position: 'absolute', top: '30%', width: '100%', pl: '20vh', pr: '20vh', maxWidth: '100em'}}>
+            <Box sx={{position: 'absolute', top: '30%', width: '100%', pl: '20vh', pr: '20vh'}}>
                 <Box sx={{flexWrap: 'wrap', display: 'flex', justifyContent: 'flex-end'}}>
                     <Typography align='left' variant='h2' sx={{}}>
-                        <span style={{display: 'block'}}>Welcome</span>
-                        to My Blog
+                        <Typewriter{...{srcString}}/>
                     </Typography>
                 </Box>
             </Box>
 
             {/*page 2*/}
-            <Box sx={{height: '200vh', bgcolor: 'primary.dark', pt:{xs:'2em',md:'10em'}}}>
+            <Box sx={{height: '200vh', bgcolor: 'primary.dark', pt: {xs: '2em', md: '6em'}}}>
 
                 <Box className={'section-2-text'}>
                     <Box className={'rotating-recent'}>
@@ -112,7 +115,7 @@ export default function IndexPage() {
                             width: 'fit-content'
                         }}>
                             <SvgIcon sx={{
-                                fontSize: {md:'10rem',xs:'7rem'},
+                                fontSize: {md: '10rem', xs: '7rem'},
                                 display: 'block',
                                 color: 'white'
                             }}>
@@ -123,11 +126,16 @@ export default function IndexPage() {
 
 
                     <Box className={'description-recent'}>
-                        <Typography variant={'h6'} sx={{mb: '2em', color: 'text.secondary'}}>Drag through our latest
+                        <Typography variant={'h6'} sx={{mb: '2em', color: 'white'}}>Drag through our latest
                             articles below. Want to read more stuff? Visit our blog
                             page.</Typography>
                         <Button sx={{p: 0}}>
-                            <Typography color={'text.primary'} variant={'h5'} sx={{}}>VISIT BLOG</Typography>
+                            <Link to={`/blog`} style={{textDecoration: 'none'}}>
+                                <Typography color={'white'} variant={'h5'} sx={{}}>
+                                    VISIT BLOG
+                                    <ArrowOutwardIcon sx={{height: '100%', ml: '.7rem'}}/>
+                                </Typography>
+                            </Link>
                         </Button>
                     </Box>
 
