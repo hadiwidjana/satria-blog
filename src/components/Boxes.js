@@ -62,7 +62,7 @@ export default function Boxes() {
             <Box x={-1.2} y={2} z={1.2} size={0.6} color={2}/>
             <Box x={0.4} y={-1} z={2.6} size={0.8} color={1}/>
             <Box x={2} y={1} z={1.5} size={0.3} color={2}/>
-            <Box x={0.2} y={-1} z={2.3} size={0.5} color={1}/>
+            <Box x={1.2} y={-1} z={2.3} size={0.5} color={1}/>
             <Box x={2} y={1} z={0.4} size={0.1} color={2}/>
             {/*<OrbitControls />*/}
         </Canvas>

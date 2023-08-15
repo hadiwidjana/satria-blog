@@ -21,7 +21,6 @@ main{
   display: flex;
   text-wrap: none;
   fontSize: 12rem;
-  align-items: center;
 }
 
 .container {
@@ -100,7 +99,7 @@ main{
   position: absolute;
   left: 0;
   right: 0;
-  top: 40%;
+  top: 30%;
   margin-left: 5%;
 }
 

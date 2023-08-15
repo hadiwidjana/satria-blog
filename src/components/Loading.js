@@ -26,18 +26,18 @@ export default function Loading({}) {
 
     return (
         <Slide direction="down" in={open} out={close} mountOnEnter unmountOnExit>
-        <div className={styles.bg}>
-            <div className={styles.container}>
-                <div ref={ref} className={styles.main}>
-                    <animated.div className={styles.fill} style={props}/>
-                    <animated.div className={styles.content}>
-                        {props.text.to(x => {
-                            return x.toFixed(0) + '%'
-                        })}
-                    </animated.div>
+            <div className={styles.bg}>
+                <div className={styles.container}>
+                    <div ref={ref} className={styles.main}>
+                        <animated.div className={styles.fill} style={props}/>
+                        <animated.div className={styles.content}>
+                            {props.text.to(x => {
+                                return x.toFixed(0) + '%'
+                            })}
+                        </animated.div>
+                    </div>
                 </div>
             </div>
-        </div>
         </Slide>
     )
 }

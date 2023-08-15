@@ -4,12 +4,16 @@ import Loading from "../components/Loading";
 import Boxes from "../components/Boxes";
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import {ReactComponent as Recent} from '../resources/recent-articles.svg'
+import SelfPortrait from '../resources/SelfPortrait-bw.png'
 import NewPostCarousel from "../components/NewPostCarousel";
 import {useScroll, animated, useSpring} from '@react-spring/web'
 import Button from "@mui/material/Button";
 import './IndexPage.css'
 import {Link} from "react-router-dom";
 import Typewriter from "../components/Typewriter";
+import Grid from "@mui/material/Unstable_Grid2";
+
+const aboutMe = 'Currently QA Automation Engineer @ Gokomodo. I build reliable test automation framework that fit seamlessly with requirements. My focus is on clean, scalability, and reusability.'
 
 
 export default function IndexPage() {
@@ -66,13 +70,18 @@ export default function IndexPage() {
 
     return (
         <div ref={scrollRef} className="container">
+
+            <Loading/>
+
+
             {/*page 1*/}
-            <Boxes/>
-            <Box sx={{width: '100%', position: 'absolute', bottom: '8vh', display: 'block'}}>
+            {/*<Boxes/>*/}
+            <Box sx={{height: '100vh',}}>
                 <Box sx={{
-                    position: 'relative',
+                    position: 'absolute',
                     width: '100%',
                     display: 'flex',
+                    bottom: 0,
                 }}>
                     <animated.div ref={elementRef} style={scrolling} className='scroll-title'>
                         <Typography noWrap variant='h1' sx={{
@@ -106,7 +115,7 @@ export default function IndexPage() {
             </Box>
 
             {/*page 2*/}
-            <Box sx={{height: '200vh', bgcolor: 'primary.dark', pt: {xs: '2em', md: '6em'}}}>
+            <Box sx={{pt: {xs: '2em', md: '6em'}}}>
 
                 <Box className={'section-2-text'}>
                     <Box className={'rotating-recent'}>
@@ -116,8 +125,7 @@ export default function IndexPage() {
                         }}>
                             <SvgIcon sx={{
                                 fontSize: {md: '10rem', xs: '7rem'},
-                                display: 'block',
-                                color: 'white'
+                                display: 'block'
                             }}>
                                 <Recent/>
                             </SvgIcon>
@@ -126,29 +134,73 @@ export default function IndexPage() {
 
 
                     <Box className={'description-recent'}>
-                        <Typography variant={'h6'} sx={{mb: '2em', color: 'white'}}>Drag through our latest
+                        <Typography variant={'h6'} sx={{mb: '2em'}}>Drag through our latest
                             articles below. Want to read more stuff? Visit our blog
                             page.</Typography>
-                        <Button sx={{p: 0}}>
-                            <Link to={`/blog`} style={{textDecoration: 'none'}}>
-                                <Typography color={'white'} variant={'h5'} sx={{}}>
-                                    VISIT BLOG
+                        <Link to={`/blog`} style={{}}>
+                            <Button variant={'text'} sx={{p: 0}}>
+                                <Typography variant={'h5'} sx={{}}>
+                                    ALL ARTICLES
                                     <ArrowOutwardIcon sx={{height: '100%', ml: '.7rem'}}/>
                                 </Typography>
-                            </Link>
-                        </Button>
+                            </Button>
+                        </Link>
+
                     </Box>
 
                 </Box>
+                <animated.div style={{
+                    transform: scrollYProgress.to(val => `translateX(${val * -100}px)`),
+                }}>
+                    {posts.length > 0 ?
+                        <NewPostCarousel arr={posts}/> : null
+                    }
+                </animated.div>
 
-                {posts.length > 0 ?
-                    <NewPostCarousel arr={posts}/> : null
-                }
+            </Box>
+
+            {/*page 3*/}
+            <Box sx={{pt: {xs: '2em', md: '6em'}}}>
+
+                <Box>
+                </Box>
+                <Box>
+                </Box>
+
+                <Grid container p={'2em'} maxWidth={'1200px'} mx={'auto'}>
+                    <Grid item xs={12} md={5} className={'profile-description-container'}>
+                        <Box className={'profile-description'}>
+                            <Typography variant={'h2'} mb={'1em'}>ABOUT ME</Typography>
+                            <Typography mb={'2em'}>{aboutMe}</Typography>
+                            <Link to={`/about`} style={{}}>
+                                <Button variant={'text'} sx={{p: 0}}>
+                                    <Typography variant={'h5'} sx={{}}>
+                                        ABOUT ME
+                                        <ArrowOutwardIcon sx={{height: '100%', ml: '.7rem'}}/>
+                                    </Typography>
+                                </Button>
+                            </Link>
+                        </Box>
+                    </Grid>
+                    <Grid item xs={12} md={2} className={'gap'}></Grid>
+                    <Grid item xs={12} md={5} className={'profile-image-container'} sx={{
+                        bgcolor:'action.hover',
+                        '&:hover': {
+                            bgcolor:'action.selected'
+                        }
+                    }}>
+                        <animated.div style={{
+                            transform: scrollYProgress.to(val => `translateY(${(val * -200)-100}px)`),
+                        }}>
+                            <Box className={'profile-image'} component={'img'} src={SelfPortrait}></Box>
+                        </animated.div>
+                    </Grid>
+                </Grid>
+
 
             </Box>
 
 
-            {/*<Loading/>*/}
 
 
         </div>

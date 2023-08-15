@@ -21,8 +21,8 @@ import About from "./pages/About";
 
 
 
-
 function App() {
+
     const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
     const [mode, setMode] = React.useState();
 
@@ -47,7 +47,6 @@ function App() {
 
     theme = responsiveFontSizes(theme);
 
-
     return (
         <ColorModeContext.Provider value={colorMode}>
         <ThemeProvider theme={theme}>
@@ -67,7 +66,7 @@ function App() {
                 </Routes>
             </UserContextProvider>
         </ThemeProvider>
-        </ColorModeContext.Provider>
+         </ColorModeContext.Provider>
     );
 }
 

@@ -9,6 +9,7 @@ import {Paper, Typography} from "@mui/material";
 import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
 import NewPostCarousel from "../components/NewPostCarousel";
+import Loading from "../components/Loading";
 
 
 
@@ -48,6 +49,8 @@ export default function Blog() {
 
 
     return (
+        <div className="container">
+        <Loading/>
         <Stack sx={{mt:'7em'}}>
                 <Typography variant='h3' align='center' fontWeight='bold' sx={{mb:'1em'}}>Satria's Blog</Typography>
             <Paper elevation={3} sx={{maxWidth:'100%', mx:'auto', p:'2em'}}>
@@ -65,6 +68,8 @@ export default function Blog() {
                 </List>
             </Paper>
         </Stack>
+        </div>
+
 
     )
 }

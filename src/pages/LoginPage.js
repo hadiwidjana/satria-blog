@@ -45,7 +45,7 @@ export default function LoginPage() {
             direction="column"
             alignItems="center"
             justifyContent="center"
-            sx={{ minHeight: '100vh' }}
+            sx={{ minHeight: '100vh', maxWidth: '900px', mx:'auto' }}
             onSubmit={login}
         >
             <Stack item xs={3} spacing={5} width='75%'>

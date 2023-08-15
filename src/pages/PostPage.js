@@ -12,6 +12,8 @@ import 'highlight.js/styles/github-dark.css';
 import EditNoteIcon from '@mui/icons-material/EditNote';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { Navigate } from "react-router-dom";
+import Loading from "../components/Loading";
+import * as React from "react";
 
 
 
@@ -57,6 +59,8 @@ export default function PostPage() {
 
     if (!postInfo) return ''
     return (
+        <div className="container">
+            <Loading/>
         <Stack className="post-page">
             <Typography gutterBottom variant="h4" component="div" color="text.primary" textAlign="center" fontWeight='bold' >
                 {postInfo.title}
@@ -108,5 +112,6 @@ export default function PostPage() {
             })}
 
         </Stack>
+        </div>
     )
 }
