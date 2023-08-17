@@ -56,7 +56,7 @@ export default function Blog() {
             <Paper elevation={3} sx={{maxWidth:'100%', mx:'auto', p:'2em'}}>
                 <BlogFilter tags={tags} setLoading={setLoading} />
                 <Divider variant="middle" />
-                <List style={{ maxHeight: '80%', overflow: 'auto' }} >
+                <Box style={{ maxHeight: '80%', overflow: 'auto' }} >
                     {posts.length > 0 && posts.map(post => (
                         <Post {...post} />
                     ))}
@@ -65,7 +65,7 @@ export default function Blog() {
                             <CircularProgress />
                         )}
                     </Box>
-                </List>
+                </Box>
             </Paper>
         </Stack>
         </div>

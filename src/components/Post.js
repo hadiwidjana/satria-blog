@@ -12,7 +12,7 @@ import Box from "@mui/material/Box";
 export default function Post({ _id, title, tags, cover, content, createdAt, author }) {
 
     return (
-        <Stack className='post' maxWidth='md' sx={{ mx:'auto', marginTop:'10px'}}>
+        <Stack className='post' maxWidth='md' sx={{ mx:'auto', marginTop:'2em'}}>
             <Link to={`/post/${_id}`} style={{ textDecoration: 'none' }} className='card-link'>
                 <Card>
                     <CardActionArea>

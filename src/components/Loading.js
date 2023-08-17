@@ -26,7 +26,7 @@ export default function Loading({}) {
 
     return (
         <Slide direction="down" in={open} out={close} mountOnEnter unmountOnExit>
-            <div className={styles.bg}>
+            <Box className={styles.bg} bgcolor={'background.default'}>
                 <div className={styles.container}>
                     <div ref={ref} className={styles.main}>
                         <animated.div className={styles.fill} style={props}/>
@@ -37,7 +37,7 @@ export default function Loading({}) {
                         </animated.div>
                     </div>
                 </div>
-            </div>
+            </Box>
         </Slide>
     )
 }

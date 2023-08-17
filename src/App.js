@@ -21,6 +21,7 @@ import About from "./pages/About";
 
 
 
+
 function App() {
 
     const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -65,6 +66,7 @@ function App() {
                     </Route>
                 </Routes>
             </UserContextProvider>
+
         </ThemeProvider>
          </ColorModeContext.Provider>
     );
