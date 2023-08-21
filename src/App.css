@@ -33,7 +33,10 @@ main{
   overflow-x: hidden;
 }
 
-
+pre {
+  text-wrap: nowrap;
+  overflow-y: scroll;
+}
 
 
 .section {
@@ -179,10 +182,8 @@ div.content{
   white-space:pre-wrap;
 }
 
-pre.ql-syntax {
+pre {
   word-wrap:break-word;
-  white-space:pre-wrap;
-  background-color: #2c2c2c;
   padding: 20px 40px;
 }
 

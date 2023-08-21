@@ -14,6 +14,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { Navigate } from "react-router-dom";
 import Loading from "../components/Loading";
 import * as React from "react";
+// import {configure} from "@testing-library/react";
 
 
 
@@ -31,10 +32,18 @@ export default function PostPage() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    document.addEventListener('DOMContentLoaded', (event) => {
-        hljs.highlightAll();
-    });
+    // document.addEventListener('DOMContentLoaded', (event) => {
+    //     hljs.highlightAll();
+    // });
 
+    document.querySelectorAll('pre').forEach(el => {
+        // then highlight each
+        hljs.configure({
+            languages: ['java','javascript','typescript','xml','html','css','json', 'python']
+        })
+        hljs.highlightElement(el);
+
+    })
 
     const deletePost = async (event) => {
         const response = await fetch(`${process.env.REACT_APP_API_URL}/post/${id}`, {
@@ -105,11 +114,6 @@ export default function PostPage() {
                     <Chip variant="outlined" label={tag} width='fit-content' sx={{ "margin-right": "10px" }} />
                 ))}
             </Box>
-
-            {document.querySelectorAll('pre').forEach(el => {
-                // then highlight each
-                hljs.highlightElement(el);
-            })}
 
         </Stack>
         </div>
